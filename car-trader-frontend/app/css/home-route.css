@@ -1,0 +1,44 @@
+.home-route {
+  .home-route-header {
+    height: 65vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/media/test.webp") no-repeat;
+    background-size: cover;
+
+    .home-route-header-wrapper {
+      padding: 0 216px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .home-route-wrapper-heading {
+      }
+
+      .home-route-wrapper-heading-sub {
+      }
+    }
+  }
+
+  /*  */
+  .home-route-main {
+    padding: 32px 216px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+
+    .home-route-main-heading {
+    }
+    .home-route-main-about {
+    }
+
+    .home-route-main-listing {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      row-gap: 24px;
+      column-gap: 24px;
+    }
+  }
+}

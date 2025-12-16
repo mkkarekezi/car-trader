@@ -1,0 +1,46 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+pnpm-debug.log*
+
+# Next.js (car-trader-frontend)
+.next/
+out/
+build/
+.vercel
+.swc/
+
+# Production
+dist/
+
+# Environment variables
+.env
+.env*.local
+.env.development
+.env.production
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# Misc
+.cache/
+.temp/
+*.tsbuildinfo
+next-env.d.ts

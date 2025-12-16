@@ -1,0 +1,129 @@
+.dashboard-route {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  gap: 32px;
+  min-height: 100vh;
+
+  .dashboard-route-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .dashboard-route-header {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("/media/test03.webp") no-repeat center;
+    background-size: cover;
+    height: 40vh;
+  }
+
+  .dashboard-route-main {
+    min-height: calc(100vh - 64px);
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    .dashboard-route-main-upload {
+      width: 30%;
+
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .dashboard-route-main-upload-title {
+      }
+      .dashboard-route-main-upload-from {
+        background-color: white;
+        border: 1px solid rgb(0, 0, 0, 0.5);
+        border-radius: 8px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        gap: 8px;
+
+        .dashboard-route-main-upload-from-input {
+          flex-grow: 1;
+          border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+          font-size: 16px;
+        }
+
+        .dashboard-route-main-upload-from-input-choose {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          flex-grow: 1;
+          border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+          label {
+            font-size: 16px;
+          }
+
+          select {
+            font-size: 16px;
+          }
+        }
+
+        .dashboard-route-main-upload-from-input-img {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          flex-grow: 1;
+          border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+
+          span {
+            font-size: 16px;
+          }
+
+          .dashboard-route-main-upload-from-input-img-icon {
+            height: 18px;
+          }
+        }
+
+        .dashboard-route-main-upload-from-submit {
+          background-color: black;
+          color: white;
+        }
+      }
+    }
+
+    .dashboard-route-main-contenet-listings {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .dashboard-route-main-contenet-listings-wrapper {
+        background-color: white;
+        border: 1px solid rgb(0, 0, 0, 0.5);
+        border-radius: 8px;
+        padding: 16px;
+        height: 100%;
+
+        .dashboard-route-main-contenet-listings-wrapper-item {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 8px 0;
+          border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+
+          .dashboard-route-main-contenet-listings-wrapper-img {
+            height: 40px;
+          }
+
+          .dashboard-route-main-contenet-listings-wrapper-info {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

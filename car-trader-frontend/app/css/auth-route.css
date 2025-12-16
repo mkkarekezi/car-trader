@@ -1,0 +1,84 @@
+.login-route,
+.reset-route,
+.signup-route {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .login-route-wrapper,
+  .reset-route-wrapper,
+  .signup-route-wrapper {
+    height: 100%;
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+
+    .login-route-form,
+    .reset-route-form,
+    .signup-route-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .login-route-form-input,
+      .reset-route-form-input,
+      .signup-route-form-input {
+        border: 1px solid black;
+        border-radius: 8px;
+        width: 100%;
+        padding: 16px 24px;
+      }
+      .login-route-form-submit,
+      .reset-route-form-submit,
+      .signup-route-form-submit {
+        background-color: black;
+        border-radius: 8px;
+        color: white;
+        width: 100%;
+        padding: 16px 24px;
+        text-align: center;
+      }
+    }
+
+    .login-route-reset .signup-route-login {
+      .login-route-reset-link,
+      .signup-route-login-link {
+        color: #676afe;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+/*  */
+.reset-route-form-code,
+.signup-route-form-code {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  .reset-route-form-code-send,
+  .signup-route-form-code-send {
+    background-color: black;
+    padding: 0 12px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 30%;
+    gap: 8px;
+    span {
+      color: white;
+      font-size: 16px;
+      width: fit-content;
+    }
+    img {
+      filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)
+        hue-rotate(317deg) brightness(108%) contrast(105%);
+      height: 16px;
+    }
+  }
+}
