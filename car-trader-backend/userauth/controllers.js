@@ -65,8 +65,9 @@ export async function signUp(req, res) {
       success: true,
       message: "user created successfully",
       user: {
-        ...user._doc,
-        password: undefined,
+        username: user.username,
+        email: user.email,
+        _id: user._id,
       },
     });
   } catch (error) {
@@ -103,8 +104,9 @@ export async function verifyAccount(req, res) {
       success: true,
       message: "account verified ",
       user: {
-        ...user._doc,
-        password: undefined,
+        username: user.username,
+        email: user.email,
+        _id: user._id,
       },
     });
   } catch (error) {
@@ -149,8 +151,9 @@ export async function signIn(req, res) {
       success: true,
       message: "logged in succesful",
       user: {
-        ...user._doc,
-        password: undefined,
+        username: user.username,
+        email: user.email,
+        _id: user._id,
       },
     });
   } catch (error) {

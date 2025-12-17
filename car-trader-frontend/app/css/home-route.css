@@ -1,6 +1,6 @@
 .home-route {
   .home-route-header {
-    height: 70vh;
+    height: 60vh;
     display: flex;
     flex-direction: column;
     padding: 32 216px;
@@ -26,11 +26,12 @@
   }
 
   .home-route-about {
+    height: 40vh;
     background-color: #e3e3e3;
-    padding: 72px 216px;
+    padding: 32px 216px;
     display: flex;
     flex-direction: column;
-    gap: 72px;
+    justify-content: space-between;
 
     .home-route-about-wrapper {
       display: flex;

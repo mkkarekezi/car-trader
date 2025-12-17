@@ -1,6 +1,26 @@
+"use client";
 import "../css/dashboard-route.css";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
+
 export default function Dashboard() {
+  const router = useRouter();
+  const handleLogout = async () => {
+    try {
+      const response = await fetch("http://localhost:500/api/auth/signout", {
+        method: "POST",
+        credentials: "include", // Important: sends cookie to delete
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        router.push("/");
+      }
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  };
   return (
     <section className="dashboard-route">
       <nav className="dashboard-route-nav">
@@ -10,7 +30,9 @@ export default function Dashboard() {
             className="dashboard-route-nav-home-icon"
           />
         </Link>
-        <button className="dashboard-route-nav-logout">logout</button>
+        <button className="dashboard-route-nav-logout" onClick={handleLogout}>
+          logout
+        </button>
       </nav>
 
       <header className="dashboard-route-header">helo</header>

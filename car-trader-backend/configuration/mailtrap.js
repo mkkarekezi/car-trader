@@ -1,8 +1,8 @@
-// import { MailtrapClient } from "mailtrap";
+import { MailtrapClient } from "mailtrap";
 
-// export const mailTrapClient = new MailtrapClient({
-//   token: "aae46d5a80e8a582ee9845dd91e3d351",
-// });
+export const mailTrapClient = new MailtrapClient({
+  token: "aae46d5a80e8a582ee9845dd91e3d351",
+});
 
 import nodemailer from "nodemailer";
 

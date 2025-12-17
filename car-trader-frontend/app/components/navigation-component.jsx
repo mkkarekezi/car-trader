@@ -38,7 +38,7 @@ export function Navigation(props) {
       </div>
 
       <Link
-        href="/saved-cars"
+        href="/account/login"
         className={isWhite ? "navigation-links-white" : "navigation-links"}
       >
         sign in

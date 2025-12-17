@@ -5,10 +5,17 @@ dotenv.config();
 import express from "express";
 import cookieParser from "cookie-parser";
 import mongoose from "mongoose";
+import cors from "cors";
 import { routes as authRoutes } from "./userauth/routes.js";
 import { routes as forSellRoutes } from "./forsell/routes.js";
 
 const app = express();
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
 app.use(express.json());
 app.use(cookieParser());
 
