@@ -4,7 +4,7 @@ export default function CarDetailsPage({ params }) {
   return (
     <section className="car-details-page">
       {/* Car Details for ID: {params.id} */}
-      <Navigation />
+      <Navigation variant="black" />
       <main className="car-details-main">
         <div className="car-details-main-image">
           {/*  */}

@@ -8,7 +8,7 @@ export default function HomeRoute() {
   return (
     <section className="home-route">
       <header className="home-route-header">
-        <Navigation />
+        <Navigation variant="white" />
         <div className="home-route-header-wrapper">
           <h1 className="home-route-wrapper-heading">
             your trusted car trading platform
@@ -23,17 +23,59 @@ export default function HomeRoute() {
         </div>
       </header>
 
-      <main className="home-route-main">
-        <h1 className="home-route-main-heading">
+      <div className="home-route-about">
+        <h1 className="home-route-about-heading">
           here is why travelers choose scout
         </h1>
+        <div className="home-route-about-wrapper">
+          <div className="home-route-about-wrapper-content">
+            <img
+              src="/icons/list-dashes.svg"
+              alt=""
+              className="home-route-about-wrapper-content-icon"
+            />
+            <h3 className="home-route-about-wrapper-content-title">
+              Competitive deals from top brands
+            </h3>
+            <p className="home-route-about-wrapper-content-sub-title">
+              Compare rates and vehicles from popular rental car companies to
+              get the best deal every time.
+            </p>
+          </div>
+          <div className="home-route-about-wrapper-content">
+            <img
+              src="/icons/calendar-blank-fill.svg"
+              alt=""
+              className="home-route-about-wrapper-content-icon"
+            />
+            <h3 className="home-route-about-wrapper-content-title">
+              Flexible scheduling
+            </h3>
+            <p className="home-route-about-wrapper-content-sub-title">
+              Book a rental car the same day or months in advance for as long as
+              a month, a weekend—whatever you need. When plans change, free
+              cancellation options are available.
+            </p>
+          </div>
+          <div className="home-route-about-wrapper-content">
+            <img
+              src="/icons/plus-circle-fill.svg"
+              alt=""
+              className="home-route-about-wrapper-content-icon"
+            />
+            <h3 className="home-route-about-wrapper-content-title">
+              Helpful add-ons
+            </h3>
+            <p className="home-route-about-wrapper-content-sub-title">
+              Customize your rental car with bike racks, car seats, ski racks,
+              and more. Your ride, your choice. Always.
+            </p>
+          </div>
+        </div>
+      </div>
 
-        <div className="home-route-main-about"></div>
-
-        <h1 className="home-route-heading-heading">
-          Cheap car rentals in rwanda
-        </h1>
-
+      <main className="home-route-main">
+        <h1 className="home-route-main-heading">Cheap car rentals in rwanda</h1>
         <div className="home-route-main-listing">
           <SingleCarComponent />
           <SingleCarComponent />

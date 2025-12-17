@@ -1,25 +1,46 @@
 import Link from "next/link";
 import "../css/navigation-component.css";
 
-export function Navigation() {
+export function Navigation(props) {
+  const isWhite = props.variant === "white";
+
   return (
     <nav className="navigation">
       <div className="navigation-wrapper">
-        <Link href="#" className="navigation-links">
-          <img src="/icons/logo.svg" alt="Car Trader Logo" className="logo" />
+        <Link
+          href="#"
+          className={isWhite ? "navigation-links-white" : "navigation-links"}
+        >
+          <img
+            src="/icons/logo.svg"
+            alt="Car Trader Logo"
+            className={isWhite ? "logo-white" : "logo-black"}
+          />
         </Link>
-        <Link href="#" className="navigation-links">
+        <Link
+          href="#"
+          className={isWhite ? "navigation-links-white" : "navigation-links"}
+        >
           rent a car
         </Link>
-        <Link href="#" className="navigation-links">
+        <Link
+          href="#"
+          className={isWhite ? "navigation-links-white" : "navigation-links"}
+        >
           buy a car
         </Link>
-        <Link href="#" className="navigation-links">
+        <Link
+          href="#"
+          className={isWhite ? "navigation-links-white" : "navigation-links"}
+        >
           model
         </Link>
       </div>
 
-      <Link href="/saved-cars" className="navigation-links">
+      <Link
+        href="/saved-cars"
+        className={isWhite ? "navigation-links-white" : "navigation-links"}
+      >
         sign in
       </Link>
     </nav>
