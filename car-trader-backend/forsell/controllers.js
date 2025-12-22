@@ -3,19 +3,8 @@ import cloudinary from "../configuration/cloudinary.js";
 
 export async function uploadcar(req, res) {
   try {
-    // ADD THIS TO DEBUG
-    // console.log("req.body:", req.body);
-    // console.log("req.files:", req.files);
-
-    const {
-      name,
-      releaseyear,
-      transmissiontype,
-      fueltype,
-      numberofseats,
-      price,
-      mileage,
-    } = req.body;
+    const { name, releaseyear, transmissiontype, fueltype, price, mileage } =
+      req.body;
 
     // Check required fields
     if (
@@ -23,7 +12,6 @@ export async function uploadcar(req, res) {
       !releaseyear ||
       !transmissiontype ||
       !fueltype ||
-      !numberofseats ||
       !price ||
       !mileage
     ) {
@@ -74,17 +62,7 @@ export async function uploadcar(req, res) {
         message: "Mileage must be a non-negative number",
       });
     }
-
-    if (
-      typeof Number(numberofseats) !== "number" ||
-      numberofseats < 2 ||
-      numberofseats > 20
-    ) {
-      return res.status(400).json({
-        success: false,
-        message: "Number of seats must be between 2 and 20",
-      });
-    }
+    // REMOVED: }  <-- Delete this extra brace
 
     // Upload images to Cloudinary
     const uploadToCloudinary = (fileBuffer) => {
@@ -112,7 +90,6 @@ export async function uploadcar(req, res) {
       releaseyear: Number(releaseyear),
       transmissiontype,
       fueltype,
-      numberofseats: Number(numberofseats),
       price: Number(price),
       mileage: Number(mileage),
       images: {

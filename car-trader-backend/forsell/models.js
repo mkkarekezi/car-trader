@@ -23,13 +23,7 @@ const carSchema = new mongoose.Schema(
     fueltype: {
       type: String,
       required: true,
-      enum: ["gasoline/diesel", "hybrid", "electric"],
-    },
-    numberofseats: {
-      type: Number,
-      required: true,
-      min: 2,
-      max: 20,
+      enum: ["combustion", "hybrid", "electric"],
     },
     price: {
       type: Number,

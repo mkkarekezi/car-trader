@@ -1,10 +1,12 @@
 "use client";
 import "../css/dashboard-route.css";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import Link from "next/link";
 
 export default function Dashboard() {
   const router = useRouter();
+
   const handleLogout = async () => {
     try {
       const response = await fetch("http://localhost:500/api/auth/signout", {
@@ -21,6 +23,81 @@ export default function Dashboard() {
       console.error("Logout error:", error);
     }
   };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    mileage: "",
+    transmissiontype: "automatic",
+    fueltype: "gasoline/diesel",
+    releaseyear: "",
+    price: "",
+  });
+
+  const [images, setImages] = useState({
+    fullview: null,
+    sideview: null,
+    backview: null,
+    insideview: null,
+  });
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e, view) => {
+    setImages({ ...images, [view]: e.target.files[0] });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    const data = new FormData();
+    Object.keys(formData).forEach((key) => data.append(key, formData[key]));
+    Object.keys(images).forEach((key) => {
+      if (images[key]) data.append(key, images[key]);
+    });
+
+    try {
+      const response = await fetch("http://localhost:500/api/sell/uploadcar", {
+        method: "POST",
+        body: data,
+        credentials: "include",
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Car uploaded successfully!");
+        // Reset form
+        setFormData({
+          name: "",
+          mileage: "",
+          transmissiontype: "automatic",
+          fueltype: "combustion",
+          releaseyear: "",
+          price: "",
+        });
+        setImages({
+          fullview: null,
+          sideview: null,
+          backview: null,
+          insideview: null,
+        });
+      } else {
+        setError(result.message);
+      }
+    } catch (err) {
+      setError("Failed to upload car");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="dashboard-route">
       <nav className="dashboard-route-nav">
@@ -42,94 +119,107 @@ export default function Dashboard() {
           <h1 className="dashboard-route-main-upload-title">
             Upload a new car
           </h1>
-          <form action="" className="dashboard-route-main-upload-from">
+          <form
+            onSubmit={handleSubmit}
+            className="dashboard-route-main-upload-from"
+          >
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               placeholder="brand/name of your car"
               className="dashboard-route-main-upload-from-input"
+              required
             />
             <input
-              type="text"
-              placeholder="enter millage in km"
+              type="number"
+              name="mileage"
+              value={formData.mileage}
+              onChange={handleInputChange}
+              placeholder="enter mileage in km"
               className="dashboard-route-main-upload-from-input"
+              required
             />
 
             <div className="dashboard-route-main-upload-from-input-choose">
               <label>Transmission Type</label>
-              <select name="transmission">
+              <select
+                name="transmissiontype"
+                value={formData.transmissiontype}
+                onChange={handleInputChange}
+              >
                 <option value="automatic">Automatic</option>
                 <option value="manual">Manual</option>
               </select>
             </div>
+
             <div className="dashboard-route-main-upload-from-input-choose">
-              <label>powertrain system </label>
-              <select name="transmission">
-                <option value="">combustion</option>
-                <option value="">electric</option>
-                <option value="">hybrid</option>
+              <label>Powertrain System</label>
+              <select
+                name="fueltype"
+                value={formData.fueltype}
+                onChange={handleInputChange}
+              >
+                <option value="gasoline/diesel">Combustion</option>
+                <option value="electric">Electric</option>
+                <option value="hybrid">Hybrid</option>
               </select>
             </div>
+
             <input
               type="number"
+              name="releaseyear"
+              value={formData.releaseyear}
+              onChange={handleInputChange}
               placeholder="enter the release year"
               className="dashboard-route-main-upload-from-input"
+              required
             />
             <input
               type="number"
+              name="price"
+              value={formData.price}
+              onChange={handleInputChange}
               placeholder="enter asking price"
               className="dashboard-route-main-upload-from-input"
+              required
             />
 
-            <div className="dashboard-route-main-upload-from-input-img">
-              <span>car full view</span>
-              <label style={{ cursor: "pointer" }}>
-                <img
-                  src="/icons/paperclip.svg"
-                  alt=""
-                  className="dashboard-route-main-upload-from-input-img-icon"
-                />
-                <input type="file" style={{ display: "none" }} />
-              </label>
-            </div>
-            <div className="dashboard-route-main-upload-from-input-img">
-              <span>car full view</span>
-              <label style={{ cursor: "pointer" }}>
-                <img
-                  src="/icons/paperclip.svg"
-                  alt=""
-                  className="dashboard-route-main-upload-from-input-img-icon"
-                />
-                <input type="file" style={{ display: "none" }} />
-              </label>
-            </div>
-            <div className="dashboard-route-main-upload-from-input-img">
-              <span>car full view</span>
-              <label style={{ cursor: "pointer" }}>
-                <img
-                  src="/icons/paperclip.svg"
-                  alt=""
-                  className="dashboard-route-main-upload-from-input-img-icon"
-                />
-                <input type="file" style={{ display: "none" }} />
-              </label>
-            </div>
-            <div className="dashboard-route-main-upload-from-input-img">
-              <span>car full view</span>
-              <label style={{ cursor: "pointer" }}>
-                <img
-                  src="/icons/paperclip.svg"
-                  alt=""
-                  className="dashboard-route-main-upload-from-input-img-icon"
-                />
-                <input type="file" style={{ display: "none" }} />
-              </label>
-            </div>
+            {["fullview", "sideview", "backview", "insideview"].map((view) => (
+              <div
+                key={view}
+                className="dashboard-route-main-upload-from-input-img"
+              >
+                <span>
+                  Car {view} {images[view] && "✓"}
+                </span>
+                <label style={{ cursor: "pointer" }}>
+                  <img
+                    src="/icons/paperclip.svg"
+                    alt=""
+                    className="dashboard-route-main-upload-from-input-img-icon"
+                  />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleFileChange(e, view)}
+                    style={{ display: "none" }}
+                    required
+                  />
+                </label>
+              </div>
+            ))}
 
-            <input
+            {error && <p style={{ color: "red" }}>{error}</p>}
+
+            <button
               type="submit"
-              placeholder="enter asking price"
+              disabled={loading}
               className="dashboard-route-main-upload-from-submit"
-            />
+            >
+              {loading ? "Uploading..." : "Upload Car"}
+            </button>
           </form>
         </div>
 

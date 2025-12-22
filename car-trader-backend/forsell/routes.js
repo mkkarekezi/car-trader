@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { checkAuth } from "../middleware/checkauth.js";
 import { uploadCarImages } from "../configuration/multer.js";
+import { checkAuth } from "./middleware.js";
 
 import {
   uploadcar,

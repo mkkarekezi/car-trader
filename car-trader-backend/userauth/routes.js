@@ -6,12 +6,10 @@ import {
   verifyAccount,
   restPassword,
   createPassword,
-  checkAuth,
 } from "./controllers.js";
 
 export const routes = new Router();
 
-// routes.post("/check-auth", checkAuth);
 routes.post("/signup", signUp);
 routes.post("/signin", signIn);
 routes.post("/signout", signOut);
