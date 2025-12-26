@@ -78,10 +78,6 @@ export default function HomeRoute() {
         <h1 className="home-route-main-heading">Cheap car rentals in rwanda</h1>
         <div className="home-route-main-listing">
           <SingleCarComponent />
-          <SingleCarComponent />
-          <SingleCarComponent />
-          <SingleCarComponent />
-          <SingleCarComponent />
         </div>
         <Footer />
       </main>

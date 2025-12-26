@@ -62,7 +62,6 @@ export async function uploadcar(req, res) {
         message: "Mileage must be a non-negative number",
       });
     }
-    // REMOVED: }  <-- Delete this extra brace
 
     // Upload images to Cloudinary
     const uploadToCloudinary = (fileBuffer) => {

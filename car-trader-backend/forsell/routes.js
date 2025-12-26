@@ -16,4 +16,4 @@ routes.post("/uploadcar", checkAuth, uploadCarImages, uploadcar);
 routes.delete("/delete/:id", checkAuth, deleteCar);
 routes.get("/get-all", getAllCars);
 routes.get("/get-one/:id", getSingleCar);
-routes.get("/my-listings/", myListings);
+routes.get("/my-listings/", checkAuth, myListings);

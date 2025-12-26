@@ -1,102 +1,41 @@
 "use client";
+import { useState, useEffect } from "react";
 import "../css/dashboard-route.css";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { logout } from "./logout.jsx";
+import { UploadCar } from "./upload-car.jsx";
+import { FetchListings } from "./my-listings.jsx";
 import Link from "next/link";
 
 export default function Dashboard() {
   const router = useRouter();
 
+  //
+  const {
+    formData,
+    images,
+    loading,
+    error,
+    handleInputChange,
+    handleFileChange,
+    handleSubmit,
+  } = UploadCar();
+
+  //
   const handleLogout = async () => {
-    try {
-      const response = await fetch("http://localhost:500/api/auth/signout", {
-        method: "POST",
-        credentials: "include", // Important: sends cookie to delete
-      });
-
-      const data = await response.json();
-
-      if (data.success) {
-        router.push("/");
-      }
-    } catch (error) {
-      console.error("Logout error:", error);
-    }
+    await logout(router);
   };
 
-  const [formData, setFormData] = useState({
-    name: "",
-    mileage: "",
-    transmissiontype: "automatic",
-    fueltype: "gasoline/diesel",
-    releaseyear: "",
-    price: "",
-  });
+  //
+  const [listings, setListings] = useState([]);
 
-  const [images, setImages] = useState({
-    fullview: null,
-    sideview: null,
-    backview: null,
-    insideview: null,
-  });
-
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleFileChange = (e, view) => {
-    setImages({ ...images, [view]: e.target.files[0] });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    const data = new FormData();
-    Object.keys(formData).forEach((key) => data.append(key, formData[key]));
-    Object.keys(images).forEach((key) => {
-      if (images[key]) data.append(key, images[key]);
-    });
-
-    try {
-      const response = await fetch("http://localhost:500/api/sell/uploadcar", {
-        method: "POST",
-        body: data,
-        credentials: "include",
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        alert("Car uploaded successfully!");
-        // Reset form
-        setFormData({
-          name: "",
-          mileage: "",
-          transmissiontype: "automatic",
-          fueltype: "combustion",
-          releaseyear: "",
-          price: "",
-        });
-        setImages({
-          fullview: null,
-          sideview: null,
-          backview: null,
-          insideview: null,
-        });
-      } else {
-        setError(result.message);
-      }
-    } catch (err) {
-      setError("Failed to upload car");
-    } finally {
-      setLoading(false);
-    }
-  };
+  useEffect(() => {
+    const loadListings = async () => {
+      const data = await FetchListings();
+      setListings(data);
+    };
+    loadListings();
+  }, []);
 
   return (
     <section className="dashboard-route">
@@ -161,9 +100,9 @@ export default function Dashboard() {
                 value={formData.fueltype}
                 onChange={handleInputChange}
               >
-                <option value="gasoline/diesel">Combustion</option>
-                <option value="electric">Electric</option>
-                <option value="hybrid">Hybrid</option>
+                <option value="combustion">combustion</option>
+                <option value="electric">electric</option>
+                <option value="hybrid">hybrid</option>
               </select>
             </div>
 
@@ -192,9 +131,9 @@ export default function Dashboard() {
                 className="dashboard-route-main-upload-from-input-img"
               >
                 <span>
-                  Car {view} {images[view] && "✓"}
+                  Car {view} {images[view]?.name}
                 </span>
-                <label style={{ cursor: "pointer" }}>
+                <label>
                   <img
                     src="/icons/paperclip.svg"
                     alt=""
@@ -211,7 +150,7 @@ export default function Dashboard() {
               </div>
             ))}
 
-            {error && <p style={{ color: "red" }}>{error}</p>}
+            {error && <p>{error}</p>}
 
             <button
               type="submit"
@@ -229,34 +168,39 @@ export default function Dashboard() {
           </h1>
 
           <div className="dashboard-route-main-contenet-listings-wrapper">
-            <div className="dashboard-route-main-contenet-listings-wrapper-item">
-              <img
-                src="media/car-placeholder.webp"
-                alt=""
-                className="dashboard-route-main-contenet-listings-wrapper-img"
-              />
-              <p>Aston martin, dB 12</p>
-              <div className="dashboard-route-main-contenet-listings-wrapper-info">
-                <img src="/icons/coins.svg" alt="" />
-                <p>75,000,00 rwf</p>
+            {listings.map((car) => (
+              <div
+                key={car._id}
+                className="dashboard-route-main-contenet-listings-wrapper-item"
+              >
+                <img
+                  src={car.images?.fullview || "media/car-placeholder.webp"}
+                  alt=""
+                  className="dashboard-route-main-contenet-listings-wrapper-img"
+                />
+                <p>{car.name}</p>
+                <div className="dashboard-route-main-contenet-listings-wrapper-info">
+                  <img src="/icons/coins.svg" alt="" />
+                  <p>{car.price.toLocaleString()} rwf</p>
+                </div>
+                <div className="dashboard-route-main-contenet-listings-wrapper-info">
+                  <img src="/icons/transmission.svg" alt="" />
+                  <p>{car.transmissiontype}</p>
+                </div>
+                <div className="dashboard-route-main-contenet-listings-wrapper-info">
+                  <img src="/icons/gas-pump.svg" alt="" />
+                  <p>{car.fueltype}</p>
+                </div>
+                <div className="dashboard-route-main-contenet-listings-wrapper-info">
+                  <img src="/icons/calendar-dot.svg" alt="" />
+                  <p>{car.releaseyear}</p>
+                </div>
+                <div className="dashboard-route-main-contenet-listings-wrapper-info">
+                  <img src="/icons/road-horizon.svg" alt="" />
+                  <p>{car.mileage}km</p>
+                </div>
               </div>
-              <div className="dashboard-route-main-contenet-listings-wrapper-info">
-                <img src="/icons/transmission.svg" alt="" />
-                <p>automatic</p>
-              </div>
-              <div className="dashboard-route-main-contenet-listings-wrapper-info">
-                <img src="/icons/gas-pump.svg" alt="" />
-                <p>hybrid</p>
-              </div>
-              <div className="dashboard-route-main-contenet-listings-wrapper-info">
-                <img src="/icons/calendar-dot.svg" alt="" />
-                <p>2017</p>
-              </div>
-              <div className="dashboard-route-main-contenet-listings-wrapper-info">
-                <img src="/icons/road-horizon.svg" alt="" />
-                <p>80km</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </main>
