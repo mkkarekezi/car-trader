@@ -22,12 +22,34 @@ textarea {
 }
 
 html {
-  background-color: #f9f9f9;
-  font-weight: 400;
+  font-size: 62.5%; /* Now 1rem = 10px */
 }
 
 body {
-  font-size: 1.6rem;
+  background-color: #f9f9f9;
+  font-size: 1.6rem; /* 16px */
   font-family: var(--font-generalsans);
   font-weight: 250;
+}
+
+:root {
+  /* Heading */
+  /* 4.29984rem; maximum and 2.14992 minimum */
+  --heading: clamp(0.13437rem, 0.1008rem + 0.105vw, 0.26874rem);
+
+  /* Sub-heading - H2 */
+  /* Min: 24px, Max: 56px */
+  --sub-heading: clamp(2.4rem, 1.6rem + 2.5vw, 5.6rem);
+
+  /* Third-heading - H3 */
+  /* Min: 20px, Max: 40px */
+  --third-heading: clamp(2rem, 1.4rem + 1.875vw, 4rem);
+
+  /* Paragraph - Body */
+  /* Min: 16px, Max: 20px */
+  --text-body: clamp(1.6rem, 1.4rem + 0.625vw, 2rem);
+
+  /* Labels/Nav - Small */
+  /* Min: 14px, Max: 16px */
+  --text-small: clamp(1.4rem, 1.3rem + 0.3125vw, 1.6rem);
 }

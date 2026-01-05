@@ -1,154 +1,135 @@
-.car-details-page {
+.car-page {
   display: flex;
   flex-direction: column;
-  padding: 32 216px;
   gap: 32px;
-  width: 100%;
 
-  .car-details-main {
+  /* Mobile - less than 744px */
+  @media (max-width: 744px) {
+    padding: 32px;
+  }
+  /* Desktop - 1024px and above */
+  @media (min-width: 1024px) {
+    padding: 32px 216px;
+  }
+
+  /*  */
+  .car-details-info {
     display: flex;
-    flex-direction: row;
-    gap: 24px;
-    width: 100%;
-    .car-details-main-image {
-      width: 60%;
+    border-radius: 8px;
+    border: 1px solid black;
+
+    /* Mobile - less than 744px */
+    @media (max-width: 744px) {
+      flex-direction: column;
+      gap: 32px;
+      padding: 32px;
+    }
+
+    /* Desktop - 1024px and above */
+    @media (min-width: 1024px) {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 32px;
+    }
+
+    .car-details-info-header {
       display: flex;
       flex-direction: column;
+      gap: 16px;
 
-      .car-details-main-image-wrapper {
-        position: relative;
-        width: 100%;
+      .car-details-info-header-title {
+        font-size: 16px;
+        text-transform: capitalize;
+      }
+      .car-details-info-header-p {
+        font-size: 16px;
+        width: 360px;
+        text-transform: capitalize;
+      }
+    }
 
-        .car-details-main-image-wrapper-img {
-          width: 100%;
-          height: 540px;
-          object-fit: cover;
-          border-radius: 8px;
-        }
+    .car-details-info-specs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
 
-        .car-details-main-image-wrapper-info {
-          position: absolute;
-          z-index: 100000000;
-          top: 0;
-          left: 0;
-          background-color: white;
-          border-radius: 100000000px;
-          padding: 8px 16px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          width: fit-content;
+      .car-details-info-specs-wrapper {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
 
-          .car-details-main-image-wrapper-info-txt {
-            color: black;
-            font-size: 16px;
-            text-transform: capitalize;
-          }
+        .car-details-info-specs-wrapper-icon {
+          height: 16px;
         }
       }
     }
 
-    /*  */
-    .car-details-main-info {
+    .car-details-info-cta {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      width: 40%;
+      gap: 16px;
+
+      .car-details-info-cta-price {
+        font-size: 29px;
+      }
+
+      .car-details-info-cta-buy {
+        width: 100%;
+        color: white;
+        text-align: center;
+        background-color: black;
+        border-radius: 8px;
+        padding: 16px 8px;
+      }
+
+      .car-details-info-cta-info {
+        background-color: #6983ff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        /* justify-content: center; */
+        gap: 8px;
+        border-radius: 10000px;
+
+        padding: 8px;
+
+        .car-details-info-cta-info-icon {
+          height: 12px;
+          filter: brightness(0) saturate(100%) invert(100%) sepia(0%)
+            saturate(2%) hue-rotate(262deg) brightness(102%) contrast(101%);
+        }
+
+        .car-details-info-cta-info-txt {
+          height: 12px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  .car-page-images-wrapper {
+    position: relative;
+
+    .car-page-images-wrapper-img {
+      width: 100%;
+      height: 640px;
+      object-fit: cover;
       border-radius: 8px;
       border: 1px solid black;
-      height: 90vh;
-      padding: 32px;
+    }
 
-      .car-details-main-info-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-
-        .car-details-main-info-title {
-          font-size: 24px;
-          font-weight: bold;
-          text-transform: capitalize;
-        }
-
-        .car-details-main-info-description {
-          font-size: 16px;
-        }
-      }
-
-      .car-details-main-info-wrapper-specs {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-
-        .car-details-main-info-wrapper-specs-wrapper {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          width: 100%;
-
-          .car-details-main-info-wrapper-specs-wrapper-info {
-            display: flex;
-            flex-direction: row;
-            gap: 8px;
-
-            .car-details-main-info-wrapper-specs-wrapper-info-icon {
-              width: 24px;
-              height: 24px;
-            }
-
-            .car-details-main-info-wrapper-specs-wrapper-info-txt {
-              font-size: 16px;
-              text-transform: capitalize;
-            }
-          }
-
-          /*  */
-          .car-details-main-info-wrapper-specs-name {
-            font-size: 16px;
-            text-transform: capitalize;
-          }
-        }
-      }
-
-      .car-details-main-info-cta-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-
-        .car-details-main-info-cta-wrapper-buy {
-          background-color: black;
-          padding: 16px 32px;
-          border-radius: 100px;
-          color: white;
-          font-size: 20px;
-          text-align: center;
-          text-transform: capitalize;
-        }
-
-        .car-details-main-info-cta-wrapper-info {
-          background-color: #6983ff;
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-          border-radius: 100px;
-          padding: 8px;
-          gap: 8px;
-
-          .car-details-main-info-cta-wrapper-info-icon {
-            width: 20px;
-            height: 20px;
-            filter: brightness(0) saturate(100%) invert(98%) sepia(5%)
-              saturate(48%) hue-rotate(222deg) brightness(116%) contrast(100%);
-          }
-
-          .car-details-main-info-cta-wrapper-info-txt {
-            color: white;
-            font-size: 14px;
-            text-transform: capitalize;
-          }
-        }
-      }
+    .car-page-images-wrapper-info {
+      color: black;
+      font-size: 16px;
+      text-transform: capitalize;
+      position: absolute;
+      z-index: 100000000;
+      top: 16;
+      left: 16;
+      background-color: white;
+      border-radius: 100000000px;
+      padding: 8px 16px;
     }
   }
 }

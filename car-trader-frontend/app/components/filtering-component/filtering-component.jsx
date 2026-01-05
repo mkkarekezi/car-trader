@@ -10,14 +10,12 @@ export default function Filtering() {
           />
           <p className="filtering-wrapper-main-text">transmission type</p>
         </div>
-        <img className="filtering-wrapper-cta" src="/icons/caret-down.svg" />
       </div>
       <div className="filtering-wrapper">
         <div className="filtering-wrapper-main">
           <img className="filtering-wrapper-cta" src="/icons/gas-pump.svg" />
           <p className="filtering-wrapper-main-text">powertrain system</p>
         </div>
-        <img className="filtering-wrapper-cta" src="/icons/caret-down.svg" />
       </div>
       <div className="filtering-wrapper">
         <div className="filtering-wrapper-main">
@@ -27,7 +25,6 @@ export default function Filtering() {
           />
           <p className="filtering-wrapper-main-text">mirage</p>
         </div>
-        <img className="filtering-wrapper-cta" src="/icons/caret-down.svg" />
       </div>
       <div className="filtering-wrapper">
         <div className="filtering-wrapper-main">
@@ -37,7 +34,6 @@ export default function Filtering() {
           />
           <p className="filtering-wrapper-main-text">release year</p>
         </div>
-        <img className="filtering-wrapper-cta" src="/icons/caret-down.svg" />
       </div>
       <div className="filtering-cta">
         <img className="filtering-cta-icon" src="/icons/magnifying-glass.svg" />

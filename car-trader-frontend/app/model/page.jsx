@@ -9,12 +9,6 @@ export default function Model() {
         <h1 className="model-route-main-heading">
           Car rentals nearby for any occasion
         </h1>
-        <p className="model-route-main-sub-heading">
-          From spacious SUVs to sporty convertibles, your perfect rental car is
-          a few steps away. Learn more about Uber car rentals, search for
-          vehicles that match your daily or weekly car rental needs, and enjoy
-          worldwide booking for travel plans near and far.
-        </p>
 
         <form action="post" className="model-route-main-form">
           <div className="model-route-main-form-input">
@@ -62,6 +56,15 @@ export default function Model() {
               <option value="">combustion</option>
               <option value="">electric</option>
               <option value="">hybrid</option>
+            </select>
+          </div>
+          <div className="model-route-main-form-input">
+            <img src="/icons/gas-pump.svg" alt="" />
+            <select name="transmission">
+              <option value="">usa</option>
+              <option value="">france</option>
+              <option value="">germany</option>
+              <option value="">uk</option>
             </select>
           </div>
 

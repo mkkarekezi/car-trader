@@ -1,12 +1,20 @@
 .home-route {
+  /*  */
   .home-route-header {
-    height: 60vh;
     display: flex;
     flex-direction: column;
-    padding: 32 216px;
     background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
       url("/media/test.webp") no-repeat;
     background-size: cover;
+
+    @media (max-width: 744px) {
+      padding: 32px;
+    }
+
+    @media (min-width: 1204px) {
+      height: 70vh;
+      padding: 32 216px;
+    }
 
     .home-route-header-wrapper {
       height: 100%;
@@ -15,28 +23,46 @@
       gap: 32px;
       justify-content: center;
 
-      .home-route-wrapper-heading {
+      .home-route-header-wrapper-heading {
+        font-size: 4.29984rem;
         color: white;
       }
 
-      .home-route-wrapper-heading-sub {
+      .home-route-header-wrapper-subheading {
         color: white;
       }
     }
   }
 
+  /*  */
   .home-route-about {
-    height: 40vh;
     background-color: #e3e3e3;
-    padding: 32px 216px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
+    @media (max-width: 744px) {
+      padding: 32px;
+      gap: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      display: flex;
+      justify-content: space-between;
+      height: 30vh;
+      padding: 16px 216px;
+    }
 
     .home-route-about-wrapper {
       display: flex;
-      flex-direction: row;
-      gap: 72px;
+
+      @media (max-width: 744px) {
+        flex-direction: column;
+      }
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+        gap: 32px;
+      }
 
       .home-route-about-wrapper-content {
         display: flex;
@@ -44,8 +70,14 @@
         align-items: flex-start;
         gap: 16px;
 
-        .home-route-about-wrapper-content-icon {
-          height: 24px;
+        .home-route-about-wrapper-content-title {
+          display: flex;
+          flex-direction: row;
+          gap: 16px;
+
+          .home-route-about-wrapper-content-icon {
+            height: 24px;
+          }
         }
 
         .home-route-about-wrapper-content-sub-title {
@@ -57,19 +89,35 @@
 
   /*  */
   .home-route-main {
-    padding: 32px 216px;
     display: flex;
     flex-direction: column;
     gap: 48px;
+    min-height: 100vh;
 
     .home-route-main-heading {
     }
 
+    @media (max-width: 744px) {
+      padding: 16px;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 32px 216px;
+    }
+
     .home-route-main-listing {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      row-gap: 24px;
-      column-gap: 24px;
+      @media (max-width: 744px) {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 24px;
+        column-gap: 24px;
+      }
     }
   }
 }

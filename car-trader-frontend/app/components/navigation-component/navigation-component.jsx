@@ -21,13 +21,7 @@ export function Navigation(props) {
           href="#"
           className={isWhite ? "navigation-links-white" : "navigation-links"}
         >
-          rent a car
-        </Link>
-        <Link
-          href="#"
-          className={isWhite ? "navigation-links-white" : "navigation-links"}
-        >
-          buy a car
+          get started
         </Link>
         <Link
           href="#"

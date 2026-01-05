@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  border: 1px solid black;
   border-radius: 8px;
 
   .filtering-wrapper-main-icon,
@@ -48,5 +47,37 @@
       font-size: 16px;
       text-transform: capitalize;
     }
+  }
+}
+
+@media (max-width: 74.4rem) {
+  .filtering {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+
+    .filtering-cta {
+      background-color: #ffa800;
+      padding: 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      width: 100%;
+      gap: 8px;
+      .filtering-cta-text {
+        font-size: 16px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+@media (min-width: 102.4rem) {
+  .filtering {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 16px;
   }
 }
