@@ -1,5 +1,5 @@
-import { SecondNavigation } from "../../../components/navigation-component.jsx";
-import "../../../css/auth-route.css";
+import { SecondNavigation } from "../../components/navigation-component/navigation-component.jsx";
+import "../auth-route.css";
 import Link from "next/link";
 export default function ResetPassword() {
   return (

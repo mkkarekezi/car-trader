@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "../css/navigation-component.css";
+import "./navigation-component.css";
 
 export function Navigation(props) {
   const isWhite = props.variant === "white";

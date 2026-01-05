@@ -1,8 +1,8 @@
-import { Navigation } from "./components/navigation-component.jsx";
-import Footer from "./components/footer-component.jsx";
-import SingleCarComponent from "./components/single-car-component.jsx";
-import Filtering from "./components/filtering-component.jsx";
-import "./css/home-route.css";
+import { Navigation } from "../components/navigation-component/navigation-component.jsx";
+import Footer from "../components/footer-component/footer-component.jsx";
+import CarComponent from "../components/car-component/car-component.jsx";
+import Filtering from "../components/filtering-component/filtering-component.jsx";
+import "./page.css";
 
 export default function HomeRoute() {
   return (
@@ -77,7 +77,7 @@ export default function HomeRoute() {
       <main className="home-route-main">
         <h1 className="home-route-main-heading">Cheap car rentals in rwanda</h1>
         <div className="home-route-main-listing">
-          <SingleCarComponent />
+          <CarComponent />
         </div>
         <Footer />
       </main>

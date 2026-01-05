@@ -2,8 +2,8 @@
 import Link from "next/link";
 import { CreateAccount } from "./sign-up.jsx";
 
-import { SecondNavigation } from "../../../components/navigation-component.jsx";
-import "../../../css/auth-route.css";
+import { SecondNavigation } from "../../components/navigation-component/navigation-component.jsx";
+import "../auth-route.css";
 
 export default function SignUP() {
   const {

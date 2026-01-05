@@ -2,8 +2,8 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { LoginAccount } from "./log-in.jsx";
-import { SecondNavigation } from "../../../components/navigation-component.jsx";
-import "../../../css/auth-route.css";
+import { SecondNavigation } from "../../components/navigation-component/navigation-component.jsx";
+import "../auth-route.css";
 
 export default function LogIn() {
   const router = useRouter();

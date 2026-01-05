@@ -1,5 +1,5 @@
-import { Navigation } from "../components/navigation-component.jsx";
-import "../css/model-route.css";
+import { Navigation } from "../components/navigation-component/navigation-component.jsx";
+import "./page.css";
 export default function Model() {
   return (
     <section className="model-route">
@@ -19,8 +19,33 @@ export default function Model() {
         <form action="post" className="model-route-main-form">
           <div className="model-route-main-form-input">
             <img src="/icons/steering-wheel.svg" alt="" />
-            <input type="text" placeholder="car brand" />
-            <img src="/icons/magnifying-glass.svg" alt="" />
+            <select name="transmission">
+              <option value="">toyota</option>
+              <option value="">bmw</option>
+              <option value="">honda</option>
+              <option value="">hyundai</option>
+              <option value="">volkswagen</option>
+              <option value="">audi</option>
+              <option value="">tesla</option>
+              <option value="">mercedes-benz</option>
+              <option value="">jeep</option>
+            </select>
+          </div>
+
+          <div className="model-route-main-form-input">
+            <img src="/icons/steering-wheel.svg" alt="" />
+            <select name="transmission">
+              <option value="">brown</option>
+              <option value="">blue</option>
+              <option value="">white</option>
+              <option value="">yellow</option>
+              <option value="">silver</option>
+              <option value="">orange</option>
+              <option value="">green</option>
+              <option value="">gray</option>
+              <option value="">red</option>
+              <option value="">black</option>
+            </select>
           </div>
 
           <div className="model-route-main-form-input">
@@ -29,7 +54,6 @@ export default function Model() {
               <option value="">manual</option>
               <option value="">automatic</option>
             </select>
-            <img src="/icons/caret-up-down.svg" alt="" />
           </div>
 
           <div className="model-route-main-form-input">
@@ -39,23 +63,29 @@ export default function Model() {
               <option value="">electric</option>
               <option value="">hybrid</option>
             </select>
-            <img src="/icons/caret-up-down.svg" alt="" />
           </div>
 
           <div className="model-route-main-form-input">
             <img src="/icons/road-horizon.svg" alt="" />
             <input type="number" placeholder="millage" />
-            <img src="/icons/caret-up-down.svg" alt="" />
           </div>
+
+          <div className="model-route-main-form-input">
+            <img src="/icons/road-horizon.svg" alt="" />
+            <input type="number" placeholder="doors" />
+          </div>
+
+          <div className="model-route-main-form-input">
+            <img src="/icons/road-horizon.svg" alt="" />
+            <input type="number" placeholder="horsepower" />
+          </div>
+
           <div className="model-route-main-form-input">
             <img src="/icons/calendar-dot.svg" alt="" />
             <input type="number" placeholder="release year" />
-            <img src="/icons/caret-up-down.svg" alt="" />
           </div>
-          <div className="model-route-main-form-input">
-            <input type="submit" placeholder="predict" />
-            <img src="/icons/arrow-circle-up.svg" alt="" />
-          </div>
+
+          <input type="submit" placeholder="predict" />
         </form>
 
         <div className="model-route-main-results">

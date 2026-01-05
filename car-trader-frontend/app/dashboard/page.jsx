@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import "../css/dashboard-route.css";
+import "./dashboard-route.css";
 import { useRouter } from "next/navigation";
 import { logout } from "./logout.jsx";
 import { UploadCar } from "./upload-car.jsx";

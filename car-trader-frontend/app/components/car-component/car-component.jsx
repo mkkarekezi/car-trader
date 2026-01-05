@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
-import "../css/single-car-component.css";
+import "./car-component.css";
 
-export default function SingleCarComponent() {
+export default function CarComponent() {
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
 

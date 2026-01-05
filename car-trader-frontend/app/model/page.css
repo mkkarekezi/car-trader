@@ -16,7 +16,7 @@
     background-size: cover;
     flex-grow: 1;
     border-radius: 8px;
-    padding: 0 216px;
+    padding: 0 144px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -27,6 +27,7 @@
       flex-direction: row;
       width: 100%;
       gap: 8px;
+
       .model-route-main-form-input {
         background-color: white;
         border-radius: 8px;
@@ -38,7 +39,14 @@
         padding: 16px 8px;
 
         input {
-          flex: 1;
+          font-size: 16px;
+          width: 0;
+          min-width: 60px; /* Set minimum readable width */
+          flex-grow: 1; /* Only if you want it to grow */
+        }
+
+        select {
+          font-size: 16px; /* This applies to both select and options */
         }
       }
     }

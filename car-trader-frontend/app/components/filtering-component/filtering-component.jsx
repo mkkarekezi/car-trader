@@ -1,4 +1,4 @@
-import "../css/filtering-component.css";
+import "./filtering-component.css";
 export default function Filtering() {
   return (
     <div className="filtering">
