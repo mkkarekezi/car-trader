@@ -24,7 +24,7 @@ export function Navigation(props) {
           get started
         </Link>
         <Link
-          href="#"
+          href="/model"
           className={isWhite ? "navigation-links-white" : "navigation-links"}
         >
           model
@@ -32,7 +32,7 @@ export function Navigation(props) {
       </div>
 
       <Link
-        href="/account/login"
+        href="/login"
         className={isWhite ? "navigation-links-white" : "navigation-links"}
       >
         sign in

@@ -1,13 +1,15 @@
 .model-route {
-  height: 100vh;
-  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 16px;
+  padding: 16px;
 
-  .model-route-main-heading,
-  .model-route-main-sub-heading {
-    color: white;
+  @media (max-width: 768px) {
+    min-height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    height: 100vh;
   }
 
   .model-route-main {
@@ -16,42 +18,86 @@
     background-size: cover;
     flex-grow: 1;
     border-radius: 8px;
-    padding: 0 144px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 32px;
 
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 32px;
+    }
+
+    @media (min-width: 1024px) {
+      flex-direction: column;
+      padding: 0 72px;
+    }
+
+    .model-route-main-heading,
+    .model-route-main-sub-heading {
+      color: white;
+    }
+
     .model-route-main-form {
       display: flex;
-      flex-direction: row;
       width: 100%;
-      gap: 8px;
+      gap: 4px;
+
+      @media (max-width: 768px) {
+        flex-direction: column;
+      }
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
 
       .model-route-main-form-input {
         background-color: white;
         border-radius: 8px;
         border: 1px solid black;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-grow: 1;
-        padding: 16px 8px;
+        font-size: 16px;
+        text-align: center;
+        align-self: center;
+        padding: 12px 24px;
 
-        input {
-          font-size: 16px;
+        @media (max-width: 768px) {
+          width: 100%;
+        }
+
+        @media (min-width: 1024px) {
           width: 0;
-          min-width: 60px; /* Set minimum readable width */
-          flex-grow: 1; /* Only if you want it to grow */
+          flex-grow: 1;
+        }
+      }
+
+      .model-route-main-form-select {
+        background-color: white;
+        border-radius: 8px;
+        border: 1px solid black;
+        font-size: 16px;
+        text-align: center;
+        align-self: center;
+        padding: 12px 24px;
+
+        @media (max-width: 768px) {
+          width: 100%;
         }
 
-        select {
-          font-size: 16px; /* This applies to both select and options */
+        @media (min-width: 1024px) {
+          width: 0;
+          flex-grow: 1;
         }
+      }
+
+      .model-route-main-form-submit {
+        padding: 12px 24px;
+        background-color: black;
+        border-radius: 8px;
+        color: white;
       }
     }
 
-    .model-route-main-results {
+    .model-results {
       background-color: white;
       padding: 24px;
       border-radius: 8px;
@@ -60,49 +106,24 @@
       flex-direction: column;
       gap: 64px;
 
-      .model-route-main-results-wrapper {
+      .model-results-title {
+      }
+
+      .model-results-wrapper {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-      }
-    }
-  }
-}
 
-@media (max-width: 768px) {
-  .model-route {
-    .model-route-main {
-      flex-grow: 1;
-      padding: 0 32px;
-
-      .model-route-main-form {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
-
-        .model-route-main-form-input {
-          background-color: white;
-          border-radius: 8px;
-          border: 1px solid black;
+        .model-results-wrapper-clear {
           display: flex;
           flex-direction: row;
-          justify-content: space-between;
-          flex-grow: 1;
-          padding: 16px 8px;
+          gap: 8px;
+          align-items: center;
+        }
 
-          input {
-            font-size: 16px;
-            width: 0;
-            min-width: 60px; /* Set minimum readable width */
-            flex-grow: 1; /* Only if you want it to grow */
-          }
-
-          select {
-            font-size: 16px; /* This applies to both select and options */
-          }
+        .model-results-wrapper-output {
         }
       }
     }

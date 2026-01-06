@@ -27,39 +27,60 @@ export default function CarComponent() {
     <>
       {cars.map((car) => (
         <div key={car._id} className="car-card">
-          <div className="card-card-wrapper">
-            <h3 className="car-card-name">{car.name}</h3>
-            <img
-              className="car-card-image"
-              src={car.images?.fullview || "/media/car-placeholder.webp"}
-              alt={car.name}
-            />
+          <img
+            className="car-card-image"
+            src={car.images?.fullview || "/media/car-placeholder.webp"}
+            alt={car.name}
+          />
 
-            <div className="car-card-info">
-              <div className="car-card-info-wrapper">
-                <img className="car-card-icon" src="icons/transmission.svg" />
-                <p className="car-card-info-wrapper-txt">
-                  {car.transmissiontype}
-                </p>
-              </div>
-              <div className="car-card-info-wrapper">
-                <img className="car-card-icon" src="icons/gas-pump.svg" />
-                <p className="car-card-info-wrapper-txt">{car.fueltype}</p>
-              </div>
-              <div className="car-card-info-wrapper">
-                <img className="car-card-icon" src="icons/calendar-dot.svg" />
-                <p className="car-card-info-wrapper-txt">{car.releaseyear}</p>
-              </div>
-              <div className="car-card-info-wrapper">
-                <img className="car-card-icon" src="icons/road-horizon.svg" />
-                <p className="car-card-info-wrapper-txt">{car.mileage} km</p>
-              </div>
+          <div className="car-card-info">
+            <h3 className="car-card-info-name">{car.name}</h3>
+            <div className="car-card-info-specs">
+              <p className="car-card-info-specs-txt">
+                <img
+                  className="car-card-info-specs-icon"
+                  src="icons/transmission.svg"
+                />
+                {car.transmissiontype}
+              </p>
+              <p className="car-card-info-specs-txt">
+                <img
+                  className="car-card-info-specs-icon"
+                  src="icons/gas-pump.svg"
+                />
+                {car.fueltype}
+              </p>
+
+              <p className="car-card-info-specs-txt">
+                <img
+                  className="car-card-info-specs-icon"
+                  src="icons/calendar-dot.svg"
+                />
+                {car.releaseyear}
+              </p>
+
+              <p className="car-card-info-specs-txt">
+                <img
+                  className="car-card-info-specs-icon"
+                  src="icons/road-horizon.svg"
+                />
+                {car.mileage} km
+              </p>
+
+              <p className="car-card-info-specs-txt">
+                <img
+                  className="car-card-info-specs-icon"
+                  src="icons/coins.svg"
+                />
+                {car.price}
+              </p>
             </div>
           </div>
-          <div className="car-card-cta">
-            <p className="car-card-cta-text">buy now - ${car.price}</p>
+
+          <p className="car-card-cta">
+            <span> buy now</span>
             <img className="car-card-icon" src="/icons/arrow-right.svg" />
-          </div>
+          </p>
         </div>
       ))}
     </>
