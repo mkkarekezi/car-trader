@@ -22,59 +22,39 @@ export default function HomeRoute() {
         </div>
       </header>
 
-      <div className="home-route-about">
-        <h1 className="home-route-about-heading">
+      <div className="home-about">
+        <h1 className="home-about-heading">
           here is why travelers choose scout
         </h1>
-        <div className="home-route-about-wrapper">
-          <div className="home-route-about-wrapper-content">
-            <div className="home-route-about-wrapper-content-title">
-              <img
-                src="/icons/list-dashes.svg"
-                alt=""
-                className="home-route-about-wrapper-content-icon"
-              />
-              <h3 className="home-route-about-wrapper-content-title">
-                Competitive deals from top brands
-              </h3>
-            </div>
-
-            <p className="home-route-about-wrapper-content-sub-title">
+        <div className="home-about-wrapper">
+          <div className="home-about-wrapper-info">
+            <h3 className="home-about-wrapper-info-title">
+              <img src="/icons/list-dashes.svg" alt="" />
+              Competitive deals from top brands
+            </h3>
+            <p className="home-about-wrapper-info-par">
               Compare rates and vehicles from popular rental car companies to
               get the best deal every time.
             </p>
           </div>
-          <div className="home-route-about-wrapper-content">
-            <div className="home-route-about-wrapper-content-title">
-              <img
-                src="/icons/calendar-blank-fill.svg"
-                alt=""
-                className="home-route-about-wrapper-content-icon"
-              />
-              <h3 className="home-route-about-wrapper-content-title">
-                Flexible scheduling
-              </h3>
-            </div>
-
-            <p className="home-route-about-wrapper-content-sub-title">
+          <div className="home-about-wrapper-info">
+            <h3 className="home-about-wrapper-info-title">
+              <img src="/icons/calendar-blank-fill.svg" alt="" />
+              Flexible scheduling
+            </h3>
+            <p className="home-about-wrapper-info-par">
               Book a rental car the same day or months in advance for as long as
               a month, a weekend—whatever you need. When plans change, free
               cancellation options are available.
             </p>
           </div>
-          <div className="home-route-about-wrapper-content">
-            <div className="home-route-about-wrapper-content-title">
-              <img
-                src="/icons/plus-circle-fill.svg"
-                alt=""
-                className="home-route-about-wrapper-content-icon"
-              />
-              <h3 className="home-route-about-wrapper-content-title">
-                Helpful add-ons
-              </h3>
-            </div>
+          <div className="home-about-wrapper-info">
+            <h3 className="home-about-wrapper-info-title">
+              <img src="/icons/plus-circle-fill.svg" alt="" />
+              Helpful add-ons
+            </h3>
 
-            <p className="home-route-about-wrapper-content-sub-title">
+            <p className="home-about-wrapper-info-par">
               Customize your rental car with bike racks, car seats, ski racks,
               and more. Your ride, your choice. Always.
             </p>

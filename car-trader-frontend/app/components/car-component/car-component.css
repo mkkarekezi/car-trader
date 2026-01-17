@@ -9,12 +9,13 @@
   }
 
   @media (min-width: 1024px) {
-    height: 360px;
+    /* height: 360px; */
   }
 
   .car-card-image {
-    flex-grow: 1;
+    height: 240px;
     object-fit: cover;
+    object-position: center;
   }
 
   .car-card-info {
@@ -24,21 +25,24 @@
     gap: 16px;
 
     .car-card-info-name {
+      font-size: var(--font-paragraphs);
+      text-transform: capitalize;
+      font-weight: 400;
     }
 
     .car-card-info-specs {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-direction: row;
       justify-content: space-between;
-
       .car-card-info-specs-txt {
         display: flex;
         flex-direction: row;
+        align-items: center;
         gap: 8px;
-        font-size: 14px;
+        font-size: var(--font-paragraphs);
 
         .car-card-info-specs-icon {
-          height: 10px;
+          height: var(--icon-sizes);
           width: fit-content;
         }
       }
@@ -51,5 +55,21 @@
     justify-content: space-between;
     padding: 8px 16px;
     border-top: 1px solid rgb(0, 0, 0, 0.5);
+    font-size: var(--font-paragraphs);
+    text-transform: lowercase;
+    cursor: pointer;
+    font-weight: 400;
+    transition: all 0.4s ease-in;
+
+    img {
+      height: var(--icon-sizes);
+    }
+  }
+
+  .car-card-cta:hover {
+    background-color: #f2f2f2;
+
+    color: black;
+    cursor: pointer;
   }
 }

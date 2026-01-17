@@ -5,20 +5,22 @@
 
   .logo-black {
     filter: brightness(0) saturate(100%);
+    height: clamp(1rem, 0.35rem + 0.75vw, 1.25rem);
   }
   .logo-white {
+    height: clamp(1rem, 0.35rem + 0.75vw, 1.25rem);
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7445%)
       hue-rotate(243deg) brightness(101%) contrast(102%);
   }
   .navigation-links {
-    font-size: 16px;
+    font-size: var(--font-paragraph);
     text-transform: capitalize;
     color: black;
     cursor: pointer;
   }
 
   .navigation-links-white {
-    font-size: 16px;
+    font-size: var(--font-paragraph);
     text-transform: capitalize;
     color: white;
     cursor: pointer;
@@ -37,17 +39,23 @@
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: clamp(2rem, 0.35rem + 0.75vw, 1.25rem);
 
-  .second-navigation-link-home {
+  .second-navigation-link {
+    cursor: pointer;
+    img {
+      height: clamp(2rem, 0.35rem + 0.75vw, 1.25rem);
+    }
+  }
+
+  .second-navigation-logo {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    .second-navigation-icon-home {
-      height: 14px;
-      width: fit-content;
-      cursor: pointer;
+
+    img {
+      height: clamp(1rem, 0.35rem + 0.75vw, 1.25rem);
     }
   }
 }

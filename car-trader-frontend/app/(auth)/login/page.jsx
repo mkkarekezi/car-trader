@@ -11,49 +11,55 @@ export default function LogIn() {
     LoginAccount(router);
 
   return (
-    <section className="login-route">
+    <section className="auth">
       <SecondNavigation />
-      <main className="login-route-wrapper">
-        <h1 className="login-route-heading">log into your account</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <form onSubmit={handleSubmit} className="login-route-form">
-          <input
-            type="email"
-            placeholder="enter your email"
-            className="login-route-form-input"
-            value={formData.email}
-            onChange={(e) =>
-              setFormData({ ...formData, email: e.target.value })
-            }
-            required
-          />
-          <input
-            type="password"
-            placeholder="enter your password"
-            className="login-route-form-input"
-            value={formData.password}
-            onChange={(e) =>
-              setFormData({ ...formData, password: e.target.value })
-            }
-            required
-          />
-          <input
-            type="submit"
-            value={loading ? "logging in..." : "log in"}
-            className="login-route-form-submit"
-            disabled={loading}
-          />
-        </form>
-        <p className="login-route-reset">
-          forgot password &nbsp;
+      <div className="auth-wrapper">
+        <main className="auth-wrapper-main">
+          <h1 className="auth-wrapper-main-heading">log into your account</h1>
+
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <form onSubmit={handleSubmit} className="auth-wrapper-main-form">
+            <input
+              type="email"
+              placeholder="enter your email"
+              className="auth-wrapper-main-form-input"
+              value={formData.email}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
+              required
+            />
+            <input
+              type="password"
+              placeholder="enter your password"
+              className="auth-wrapper-main-form-input"
+              value={formData.password}
+              onChange={(e) =>
+                setFormData({ ...formData, password: e.target.value })
+              }
+              required
+            />
+            <input
+              type="submit"
+              value={loading ? "logging in..." : "log in"}
+              className="auth-wrapper-main-form-submit"
+              disabled={loading}
+            />
+          </form>
           <Link
             href="/account/reset-password"
-            className="login-route-reset-link"
+            className="auth-wrapper-main-link"
           >
-            reset password
+            forgot password
           </Link>
-        </p>
-      </main>
+          <Link
+            href="/account/reset-password"
+            className="auth-wrapper-main-link"
+          >
+            create account
+          </Link>
+        </main>
+      </div>
     </section>
   );
 }

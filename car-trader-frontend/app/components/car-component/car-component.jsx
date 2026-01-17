@@ -39,21 +39,6 @@ export default function CarComponent() {
               <p className="car-card-info-specs-txt">
                 <img
                   className="car-card-info-specs-icon"
-                  src="icons/transmission.svg"
-                />
-                {car.transmissiontype}
-              </p>
-              <p className="car-card-info-specs-txt">
-                <img
-                  className="car-card-info-specs-icon"
-                  src="icons/gas-pump.svg"
-                />
-                {car.fueltype}
-              </p>
-
-              <p className="car-card-info-specs-txt">
-                <img
-                  className="car-card-info-specs-icon"
                   src="icons/calendar-dot.svg"
                 />
                 {car.releaseyear}
@@ -78,7 +63,7 @@ export default function CarComponent() {
           </div>
 
           <p className="car-card-cta">
-            <span> buy now</span>
+            view details
             <img className="car-card-icon" src="/icons/arrow-right.svg" />
           </p>
         </div>
