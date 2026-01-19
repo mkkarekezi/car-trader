@@ -22,7 +22,7 @@ export function VerifyAccount() {
         ...prev,
         error: "Unauthorized access. Redirecting...",
       }));
-      setTimeout(() => router.push("/account/signup"), 2000);
+      setTimeout(() => router.push("/signup"), 2000);
       return;
     }
 
@@ -60,7 +60,7 @@ export function VerifyAccount() {
             email: state.email.toLowerCase().trim(),
             code: state.verificationCode,
           }),
-        }
+        },
       );
 
       const data = await response.json();

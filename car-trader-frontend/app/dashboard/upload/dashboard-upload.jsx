@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function UploadCar() {
+export function DashboardUploadFunction() {
   const [formData, setFormData] = useState({
     name: "",
     mileage: "",

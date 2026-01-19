@@ -46,6 +46,7 @@
           text-align: center;
           text-transform: capitalize;
           font-size: var(--font-paragraphs);
+          cursor: pointer;
         }
       }
 

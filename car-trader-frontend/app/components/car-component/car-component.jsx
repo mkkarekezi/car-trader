@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import "./car-component.css";
 
@@ -62,10 +63,10 @@ export default function CarComponent() {
             </div>
           </div>
 
-          <p className="car-card-cta">
+          <Link href={`/buy/${car._id}`} className="car-card-cta">
             view details
             <img className="car-card-icon" src="/icons/arrow-right.svg" />
-          </p>
+          </Link>
         </div>
       ))}
     </>

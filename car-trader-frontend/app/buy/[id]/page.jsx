@@ -1,7 +1,7 @@
 "use client";
 import { use, useState, useEffect } from "react";
 import { Navigation } from "../../components/navigation-component/navigation-component.jsx";
-import "../buy-route.css";
+import "./buy-route.css";
 
 export default function CarDetailsPage({ params }) {
   const { id } = use(params);
@@ -29,69 +29,29 @@ export default function CarDetailsPage({ params }) {
     <section className="car-page">
       <Navigation variant="black" />
 
-      <div className="car-details-info">
-        <div className="car-details-info-header">
-          <h1 className="car-details-info-header-title">{car.name}</h1>
+      <div className="car-page-info">
+        <h1 className="car-page-info-name">{car.name}</h1>
 
-          <p className="car-details-info-header-p">
-            Death is inescapable, but to be reborn is a gift. The Rebirth Issue
-            is here and offers an abundance of interviews with skaters like
-            Aylu, Macarena
+        <div className="car-page-info-specs">
+          <p className="car-page-info-specs-wrapper">
+            <img src="/icons/transmission.svg" />
+            Transmission type - {car.transmissiontype}
           </p>
-        </div>
 
-        <div className="car-details-info-specs">
-          <div className="car-details-info-specs-wrapper">
-            <img
-              src="/icons/transmission.svg"
-              className="car-details-info-specs-wrapper-icon"
-            />
-            <p className="car-details-info-specs-wrapper-txt">
-              Transmission type - {car.transmissiontype}
-            </p>
-          </div>
+          <p className="car-page-info-specs-wrapper">
+            <img src="/icons/gas-pump.svg" />
+            Transmission type - {car.fueltype}
+          </p>
 
-          <div className="car-details-info-specs-wrapper">
-            <img
-              src="/icons/gas-pump.svg"
-              className="car-details-info-specs-wrapper-icon"
-            />
-            <p className="car-details-info-specs-wrapper-txt">
-              Transmission type - {car.fueltype}
-            </p>
-          </div>
-          <div className="car-details-info-specs-wrapper">
-            <img
-              src="/icons/calendar-dot.svg"
-              className="car-details-info-specs-wrapper-icon"
-            />
-            <p className="car-details-info-specs-wrapper-txt">
-              Transmission type - {car.releaseyear}
-            </p>
-          </div>
-          <div className="car-details-info-specs-wrapper">
-            <img
-              src="/icons/road-horizon.svg"
-              className="car-details-info-specs-wrapper-icon"
-            />
-            <p className="car-details-info-specs-wrapper-txt">
-              Transmission type - {car.mileage}
-            </p>
-          </div>
-        </div>
+          <p className="car-page-info-specs-wrapper">
+            <img src="/icons/calendar-dot.svg" />
+            Transmission type - {car.releaseyear}
+          </p>
 
-        <div className="car-details-info-cta">
-          <h1 className="car-details-info-cta-price">{car.price} rwf</h1>
-          <button className="car-details-info-cta-buy">buy now</button>
-          <div className="car-details-info-cta-info">
-            <img
-              src="/icons/info.svg"
-              className="car-details-info-cta-info-icon"
-            />
-            <p className="car-details-info-cta-info-txt">
-              a fee is redacted for transactions
-            </p>
-          </div>
+          <p className="car-page-info-specs-wrapper">
+            <img src="/icons/road-horizon.svg" />
+            Transmission type - {car.mileage}
+          </p>
         </div>
       </div>
 

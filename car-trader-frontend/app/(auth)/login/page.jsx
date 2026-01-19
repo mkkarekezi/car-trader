@@ -1,5 +1,6 @@
 "use client";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import Link from "next/link";
 import { LoginAccount } from "./log-in.jsx";
 import { SecondNavigation } from "../../components/navigation-component/navigation-component.jsx";
@@ -7,6 +8,14 @@ import "../auth-route.css";
 
 export default function LogIn() {
   const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      router.push("/dashboard/upload");
+    }
+  }, [router]);
+
   const { formData, setFormData, loading, error, handleSubmit } =
     LoginAccount(router);
 
@@ -46,16 +55,8 @@ export default function LogIn() {
               disabled={loading}
             />
           </form>
-          <Link
-            href="/account/reset-password"
-            className="auth-wrapper-main-link"
-          >
-            forgot password
-          </Link>
-          <Link
-            href="/account/reset-password"
-            className="auth-wrapper-main-link"
-          >
+
+          <Link href="/signup" className="auth-wrapper-main-link">
             create account
           </Link>
         </main>

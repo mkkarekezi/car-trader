@@ -32,7 +32,7 @@ export function LoginAccount(router) {
 
       if (data.success) {
         localStorage.setItem("token", data.token);
-        router.push("/dashboard");
+        router.push("/dashboard/upload");
       } else {
         setError(data.message || "Login failed");
       }

@@ -1,6 +1,30 @@
 "use client";
 import Link from "next/link";
+import "./dashboard-upload.css";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+import { DashboardUploadFunction } from "./dashboard-upload.jsx";
+
 export default function DashboardUpload() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      router.push("/login"); // or wherever your login page is
+    }
+  }, [router]);
+  const {
+    formData,
+    images,
+    loading,
+    error,
+    handleInputChange,
+    handleFileChange,
+    handleSubmit,
+  } = DashboardUploadFunction();
+
   return (
     <div className="dashboard-upload">
       <aside className="dashboard-upload-aside">
@@ -8,10 +32,24 @@ export default function DashboardUpload() {
       </aside>
 
       <main className="dashboard-upload-main">
-        <Link className="dashboard-upload-main-linl">
-          upload a car
-          <img src="/icons/arrow-left.svg" alt="" />
-        </Link>
+        <header className="dashboard-upload-main-header">
+          <h1>user name{}</h1>
+          <div className="dashboard-upload-main-links">
+            <Link
+              href="/dashboard/upload"
+              className="dashboard-listings-main-links-link"
+            >
+              upload a car
+            </Link>
+            <Link
+              href="/dashboard/listings"
+              className="dashboard-listings-main-links-link"
+            >
+              my uploads
+            </Link>
+          </div>
+        </header>
+
         <form onSubmit={handleSubmit} className="dashboard-upload-main-from">
           <input
             type="text"
@@ -74,30 +112,30 @@ export default function DashboardUpload() {
             required
           />
 
-          {["fullview", "sideview", "backview", "insideview"].map((view) => (
-            <div
-              key={view}
-              className="dashboard-route-main-upload-from-input-img"
-            >
-              <span>
-                Car {view} {images[view]?.name}
-              </span>
-              <label>
-                <img
-                  src="/icons/paperclip.svg"
-                  alt=""
-                  className="dashboard-route-main-upload-from-input-img-icon"
-                />
-                <input
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => handleFileChange(e, view)}
-                  style={{ display: "none" }}
-                  required
-                />
-              </label>
-            </div>
-          ))}
+          <div className="dashboard-upload-main-from-images">
+            {["fullview", "sideview", "backview", "insideview"].map((view) => (
+              <div
+                key={view}
+                className="dashboard-route-main-upload-from-input-img"
+              >
+                <span>Car {view}</span>
+                <label>
+                  <img
+                    src="/icons/paperclip.svg"
+                    alt=""
+                    className="dashboard-route-main-upload-from-input-img-icon"
+                  />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={(e) => handleFileChange(e, view)}
+                    style={{ display: "none" }}
+                    required
+                  />
+                </label>
+              </div>
+            ))}
+          </div>
 
           {error && <p>{error}</p>}
 

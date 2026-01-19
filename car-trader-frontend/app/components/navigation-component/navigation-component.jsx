@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import "./navigation-component.css";
 
 export function Navigation(props) {
@@ -35,15 +37,17 @@ export function Navigation(props) {
 }
 
 export function SecondNavigation() {
+  const router = useRouter();
+
   return (
     <nav className="second-navigation">
       <Link href="#" className="second-navigation-link">
-        <img src="/icons/arrow-left.svg" alt="" />
+        <img src="/icons/arrow-left.svg" alt="" onClick={() => router.back()} />
       </Link>
 
-      <div className="second-navigation-logo">
+      <Link className="second-navigation-logo" href="/">
         <img src="/icons/logo.svg" alt="" />
-      </div>
+      </Link>
     </nav>
   );
 }
