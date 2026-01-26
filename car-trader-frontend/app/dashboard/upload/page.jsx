@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { NavigationDashboard } from "../../components/navigation-component/navigation-component.jsx";
 import "./dashboard-upload.css";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -32,23 +32,7 @@ export default function DashboardUpload() {
       </aside>
 
       <main className="dashboard-upload-main">
-        <header className="dashboard-upload-main-header">
-          <h1>user name{}</h1>
-          <div className="dashboard-upload-main-links">
-            <Link
-              href="/dashboard/upload"
-              className="dashboard-listings-main-links-link"
-            >
-              upload a car
-            </Link>
-            <Link
-              href="/dashboard/listings"
-              className="dashboard-listings-main-links-link"
-            >
-              my uploads
-            </Link>
-          </div>
-        </header>
+        <NavigationDashboard />
 
         <form onSubmit={handleSubmit} className="dashboard-upload-main-from">
           <input

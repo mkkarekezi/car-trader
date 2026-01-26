@@ -2,70 +2,67 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  padding: 16px;
+  padding: var(--padding-wrapper);
 
   @media (max-width: 768px) {
     min-height: 100vh;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     height: 100vh;
   }
 
   .model-route-main {
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-      url("/media/test.webp") no-repeat center;
-    background-size: cover;
     flex-grow: 1;
-    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     gap: 32px;
 
     @media (max-width: 768px) {
       flex-direction: column;
-      padding: 32px;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 768px) {
       flex-direction: column;
-      padding: 0 72px;
     }
 
     .model-route-main-heading,
     .model-route-main-sub-heading {
-      color: white;
+      color: black;
     }
 
     .model-route-main-form {
       display: flex;
       width: 100%;
-      gap: 4px;
+      gap: 8px;
+      font-size: var(--font-paragraphs);
+      text-transform: capitalize;
 
       @media (max-width: 768px) {
         flex-direction: column;
       }
 
-      @media (min-width: 1024px) {
+      @media (min-width: 768px) {
         flex-direction: row;
+        flex-wrap: wrap;
       }
 
       .model-route-main-form-input {
         background-color: white;
         border-radius: 8px;
         border: 1px solid black;
-        font-size: 16px;
         text-align: center;
         align-self: center;
         padding: 12px 24px;
+        flex-grow: 1;
 
         @media (max-width: 768px) {
           width: 100%;
         }
 
-        @media (min-width: 1024px) {
-          width: 0;
+        @media (min-width: 768px) {
           flex-grow: 1;
         }
       }
@@ -74,7 +71,6 @@
         background-color: white;
         border-radius: 8px;
         border: 1px solid black;
-        font-size: 16px;
         text-align: center;
         align-self: center;
         padding: 12px 24px;
@@ -83,8 +79,7 @@
           width: 100%;
         }
 
-        @media (min-width: 1024px) {
-          width: 0;
+        @media (min-width: 768px) {
           flex-grow: 1;
         }
       }
@@ -98,33 +93,21 @@
     }
 
     .model-results {
-      background-color: white;
-      padding: 24px;
+      padding: 16px;
       border-radius: 8px;
       border: 1px solid black;
       display: flex;
-      flex-direction: column;
-      gap: 64px;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
 
-      .model-results-title {
+      .model-results-clear {
+        height: var(--icon-sizes);
       }
 
-      .model-results-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-
-        .model-results-wrapper-clear {
-          display: flex;
-          flex-direction: row;
-          gap: 8px;
-          align-items: center;
-        }
-
-        .model-results-wrapper-output {
-        }
+      .model-results-output {
+        font-size: var(--font-paragraphs);
+        text-transform: capitalize;
       }
     }
   }

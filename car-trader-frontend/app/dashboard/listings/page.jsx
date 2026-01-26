@@ -1,8 +1,8 @@
 "use client";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FetchListings } from "./dashboard-listings.jsx";
 import { useRouter } from "next/navigation";
+import { NavigationDashboard } from "../../components/navigation-component/navigation-component.jsx";
 import "./dashboard-listing.css";
 
 export default function DashboardListings() {
@@ -37,23 +37,7 @@ export default function DashboardListings() {
       </aside>
 
       <main className="dashboard-listings-main">
-        <header className="dashboard-listings-main-header">
-          <h1>user name{}</h1>
-          <div className="dashboard-listings-main-links">
-            <Link
-              href="/dashboard/upload"
-              className="dashboard-listings-main-links-link"
-            >
-              upload a car
-            </Link>
-            <Link
-              href="/dashboard/listings"
-              className="dashboard-listings-main-links-link"
-            >
-              my uploads
-            </Link>
-          </div>
-        </header>
+        <NavigationDashboard />
 
         <div className="dashboard-listings-main-wrapper">
           <div className="dashboard-listings-main-wrapper-title">

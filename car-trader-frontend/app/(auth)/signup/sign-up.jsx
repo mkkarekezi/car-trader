@@ -46,7 +46,7 @@ export function CreateAccount() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:500/api/auth/signup", {
+      const response = await fetch("http://localhost:5000/api/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,8 +66,12 @@ export function CreateAccount() {
 
       setSuccess("Verification code sent! Redirecting...");
 
+      // Store email in sessionStorage
+      sessionStorage.setItem("canVerify", "true");
+      sessionStorage.setItem("verificationEmail", email.toLowerCase().trim());
+
       setTimeout(() => {
-        router.push(`/account/verify?email=${encodeURIComponent(email)}`);
+        router.push("/verify-account"); // No email in URL
       }, 1500);
     } catch (err) {
       setError(err.message);

@@ -40,7 +40,7 @@ export function DashboardUploadFunction() {
     });
 
     try {
-      const response = await fetch("http://localhost:500/api/sell/uploadcar", {
+      const response = await fetch("http://localhost:5000/api/sell/uploadcar", {
         method: "POST",
         body: data,
         credentials: "include",

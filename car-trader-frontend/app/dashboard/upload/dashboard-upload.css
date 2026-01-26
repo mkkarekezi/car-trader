@@ -1,13 +1,13 @@
 .dashboard-upload {
   display: flex;
-  height: 100vh;
   overflow: hidden;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 7684px) {
     flex-direction: row;
+    height: 100vh;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 768px) {
     flex-direction: column;
   }
 
@@ -16,40 +16,38 @@
       linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
       url("/media/dashboars-img.jpg") no-repeat;
     background-size: cover;
+    padding: 32px;
 
-    @media (min-width: 1024px) {
-      width: 35vw;
-      height: 100%;
+    h1 {
+      color: white;
+      font-size: var(--font-paragraphs);
+      font-weight: 700;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 1024px) {
+    @media (min-width: 768px) {
+      width: 35vw;
+      height: 100vh;
+    }
+
+    @media (max-width: 786px) {
       flex-direction: column;
+      height: 300px;
     }
   }
 
   .dashboard-upload-main {
     flex-grow: 1;
-    padding: 32px 200px;
+    padding: var(--padding-wrapper);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
-    .dashboard-upload-main-header {
-      display: flex;
-      flex-direction: row;
+    @media (max-width: 768px) {
+      gap: 32px;
+    }
+
+    @media (min-width: 768px) {
       justify-content: space-between;
-
-      .dashboard-upload-main-links {
-        display: flex;
-        flex-direction: row;
-        gap: 16px;
-
-        .dashboard-listings-main-links-link {
-          font-size: var(--font-paragraphs);
-          text-transform: capitalize;
-          cursor: pointer;
-        }
-      }
     }
 
     .dashboard-upload-main-from {

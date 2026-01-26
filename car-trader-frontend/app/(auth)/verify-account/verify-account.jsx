@@ -50,7 +50,7 @@ export function VerifyAccount() {
 
     try {
       const response = await fetch(
-        "http://localhost:500/api/auth/verify-account",
+        "http://localhost:5000/api/auth/verify-account",
         {
           method: "POST",
           headers: {

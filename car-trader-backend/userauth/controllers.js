@@ -4,8 +4,7 @@ import { gentokencookie } from "../configuration/gentokencookie.js";
 import {
   sendVerificationEmail,
   sendWelcomeEmail,
-  PasswordReset,
-} from "../configuration/mailtrap.js";
+} from "../configuration/mail-config.js";
 
 //
 export async function signUp(req, res) {

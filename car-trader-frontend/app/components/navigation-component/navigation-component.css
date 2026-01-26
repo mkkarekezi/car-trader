@@ -60,3 +60,21 @@
     }
   }
 }
+
+.navigation-dashboard {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .navigation-dashboard-links {
+    font-size: var(--font-paragraphs);
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+
+  .navigation-dashboard-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+}

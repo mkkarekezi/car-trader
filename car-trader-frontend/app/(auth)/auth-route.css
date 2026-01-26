@@ -19,7 +19,7 @@
 
       .auth-wrapper-main-heading {
         font-size: var(--font-sub-heading);
-        text-transform: capitalize;
+        text-transform: lowercase;
         font-weight: 400;
       }
 
@@ -34,7 +34,7 @@
           width: 100%;
           padding: 16px 24px;
           font-size: var(--font-paragraphs);
-          text-transform: capitalize;
+          text-transform: lowercase;
         }
 
         .auth-wrapper-main-form-submit {

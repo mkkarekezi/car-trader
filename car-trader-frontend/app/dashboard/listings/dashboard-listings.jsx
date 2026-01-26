@@ -1,6 +1,6 @@
 export async function FetchListings() {
   try {
-    const response = await fetch("http://localhost:500/api/sell/my-listings", {
+    const response = await fetch("http://localhost:5000/api/sell/my-listings", {
       credentials: "include",
       headers: {
         "Content-Type": "application/json",

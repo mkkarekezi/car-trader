@@ -2,8 +2,9 @@
   .home-route-header {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
-      url("/media/test.webp") no-repeat;
+    background:
+      linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)),
+      url("/media/test03.webp") no-repeat;
     background-size: cover;
     padding: var(--padding-wrapper);
 

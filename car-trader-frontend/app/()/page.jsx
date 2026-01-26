@@ -1,6 +1,5 @@
 import { Navigation } from "../components/navigation-component/navigation-component.jsx";
 import CarComponent from "../components/car-component/car-component.jsx";
-import Filtering from "../components/filtering-component/filtering-component.jsx";
 import "./page.css";
 
 export default function HomeRoute() {
@@ -13,12 +12,11 @@ export default function HomeRoute() {
             buy, sell & rent cars with car trader rwanda
           </h1>
           <p className="home-route-header-wrapper-subheading">
-            From spacious SUVs to sporty convertibles, your perfect rental car
-            is a few steps away. Learn more about Uber car rentals, search for
-            vehicles that match your daily or weekly car rental needs, and enjoy
-            worldwide booking for travel plans near and far.
+            Car Trader Rwanda is a trusted online marketplace where you can buy,
+            sell, or rent cars with confidence. We connect car owners, dealers,
+            and buyers on one simple, secure platform designed for Rwanda’s
+            market.
           </p>
-          <Filtering />
         </div>
       </header>
 
@@ -30,33 +28,35 @@ export default function HomeRoute() {
           <div className="home-about-wrapper-info">
             <h3 className="home-about-wrapper-info-title">
               <img src="/icons/list-dashes.svg" alt="" />
-              Competitive deals from top brands
+              Why Choose Us
             </h3>
             <p className="home-about-wrapper-info-par">
-              Compare rates and vehicles from popular rental car companies to
-              get the best deal every time.
+              We make car trading easy and transparent. With verified listings,
+              fair pricing, and a user-friendly experience, Car Trader Rwanda
+              helps you find the right car faster and with less stress.
             </p>
           </div>
           <div className="home-about-wrapper-info">
             <h3 className="home-about-wrapper-info-title">
               <img src="/icons/calendar-blank-fill.svg" alt="" />
-              Flexible scheduling
+              Wide Selection
             </h3>
             <p className="home-about-wrapper-info-par">
-              Book a rental car the same day or months in advance for as long as
-              a month, a weekend—whatever you need. When plans change, free
-              cancellation options are available.
+              Browse a diverse range of vehicles—from budget cars to luxury
+              models—available for sale or rent. New listings are added
+              regularly to match every need and budget.
             </p>
           </div>
           <div className="home-about-wrapper-info">
             <h3 className="home-about-wrapper-info-title">
               <img src="/icons/plus-circle-fill.svg" alt="" />
-              Helpful add-ons
+              Safe & Convenient
             </h3>
 
             <p className="home-about-wrapper-info-par">
-              Customize your rental car with bike racks, car seats, ski racks,
-              and more. Your ride, your choice. Always.
+              Our platform prioritizes security and convenience, allowing you to
+              contact sellers directly, compare options, and make informed
+              decisions—all in one place.
             </p>
           </div>
         </div>
