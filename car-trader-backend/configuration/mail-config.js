@@ -1,41 +1,34 @@
 import { MailtrapClient } from "mailtrap";
-
-export const mailTrapClient = new MailtrapClient({
-  token: process.env.MAILTRAP_TOKEN,
-});
-
-import nodemailer from "nodemailer";
-
-export const mailtrapClient = nodemailer.createTransport({
-  host: "sandbox.smtp.mailtrap.io",
-  port: 2525,
-  auth: {
-    user: "6f829c45a4730a",
-    pass: "****a7a3",
-  },
-});
-
-export const sender = {
-  email: "hello@car-trader.site",
-  name: "CAR TRADER",
-};
-
-// ////////////////////////
 import {
   VERIFICATION_EMAIL_TEMPLATE,
   WELCOME_EMAIL_TEMPLATE,
 } from "./mail-templates.js";
 
+// Initialize Mailtrap client
+export const mailTrapClient = new MailtrapClient({
+  token: process.env.MAILTRAP_TOKEN,
+});
+
+// Sender configuration
+export const sender = {
+  email: "hello@car-trader.site",
+  name: "CAR TRADER",
+};
+
+// Send verification email
 export const sendVerificationEmail = async (email, verifytoken) => {
+  const recipient = [{ email }];
+
   try {
-    const response = await mailtrapClient.sendMail({
-      from: '"CAR TRADER" <hello@car-trader.site>',
-      to: email,
+    const response = await mailTrapClient.send({
+      from: sender,
+      to: recipient,
       subject: "Verify your email",
       html: VERIFICATION_EMAIL_TEMPLATE.replace(
         "{verificationCode}",
         verifytoken,
       ),
+      category: "Email Verification",
     });
 
     console.log("Email sent successfully", response);
@@ -45,13 +38,17 @@ export const sendVerificationEmail = async (email, verifytoken) => {
   }
 };
 
+// Send welcome email
 export const sendWelcomeEmail = async (email) => {
+  const recipient = [{ email }];
+
   try {
-    const response = await mailtrapClient.sendMail({
-      from: '"CAR TRADER" <hello@car-tader.>',
-      to: email,
-      subject: "account verified",
+    const response = await mailTrapClient.send({
+      from: sender,
+      to: recipient,
+      subject: "Account Verified",
       html: WELCOME_EMAIL_TEMPLATE,
+      category: "Welcome",
     });
 
     console.log("Welcome email sent successfully", response);
