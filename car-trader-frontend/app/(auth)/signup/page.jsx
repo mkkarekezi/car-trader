@@ -56,7 +56,7 @@ export default function SignUP() {
               disabled={loading}
             />
           </form>
-          <Link href="/account/login" className="auth-wrapper-main-link">
+          <Link href="/login" className="auth-wrapper-main-link">
             log in account
           </Link>
         </main>
