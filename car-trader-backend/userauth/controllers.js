@@ -139,16 +139,28 @@ export async function signIn(req, res) {
     if (!ispassowrdvalid) {
       return res
         .status(400)
-        .json({ success: false, message: "invalid credentails" });
+        .json({ success: false, message: "invalid credentials" });
     }
 
-    gentokencookie(user._id, res);
+    // Generate token
+    const token = jwt.sign({ userid: user._id }, process.env.JWT_SECRET, {
+      expiresIn: "7d",
+    });
+
+    // Set cookie with proper options for cross-origin
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true, // Always true for production HTTPS
+      sameSite: "none", // Required for cross-origin cookies
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
     user.lastlogin = new Date();
     await user.save();
 
     res.status(200).json({
       success: true,
-      message: "logged in succesful",
+      message: "logged in successful",
       user: {
         username: user.username,
         email: user.email,

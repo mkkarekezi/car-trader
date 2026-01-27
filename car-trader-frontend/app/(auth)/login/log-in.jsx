@@ -34,7 +34,6 @@ export function LoginAccount(router) {
       console.log("Login response:", data);
 
       if (data.success) {
-        localStorage.setItem("token", data.token);
         router.push("/dashboard/upload");
       } else {
         setError(data.message || "Login failed");
