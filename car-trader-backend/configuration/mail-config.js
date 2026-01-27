@@ -27,35 +27,29 @@ import {
 } from "./mail-templates.js";
 
 export const sendVerificationEmail = async (email, verifytoken) => {
-  const recipient = [{ email }];
-
   try {
-    const response = await mailTrapClient.send({
-      from: sender,
-      to: recipient,
+    const response = await mailtrapClient.sendMail({
+      from: '"CAR TRADER" <hello@car-trader.site>',
+      to: email,
       subject: "Verify your email",
       html: VERIFICATION_EMAIL_TEMPLATE.replace(
         "{verificationCode}",
         verifytoken,
       ),
-      category: "Email Verification",
     });
 
     console.log("Email sent successfully", response);
   } catch (error) {
     console.error(`Error sending verification`, error);
-
     throw new Error(`Error sending verification email: ${error}`);
   }
 };
 
 export const sendWelcomeEmail = async (email) => {
-  const recipient = [{ email }];
-
   try {
-    const response = await mailTrapClient.send({
-      from: sender,
-      to: recipient,
+    const response = await mailtrapClient.sendMail({
+      from: '"CAR TRADER" <hello@car-tader.>',
+      to: email,
       subject: "account verified",
       html: WELCOME_EMAIL_TEMPLATE,
     });
@@ -63,7 +57,6 @@ export const sendWelcomeEmail = async (email) => {
     console.log("Welcome email sent successfully", response);
   } catch (error) {
     console.error(`Error sending welcome email`, error);
-
     throw new Error(`Error sending welcome email: ${error}`);
   }
 };
