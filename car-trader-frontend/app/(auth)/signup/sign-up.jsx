@@ -47,7 +47,7 @@ export function CreateAccount() {
 
     try {
       const response = await fetch(
-        "https://car-trader-uvry.onrender.com//api/auth/signup",
+        "https://car-trader-uvry.onrender.com/api/auth/signup",
         {
           method: "POST",
           headers: {
