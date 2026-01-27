@@ -12,8 +12,7 @@ import { routes as forSellRoutes } from "./forsell/routes.js";
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000",
-    origin: "https://car-trader-uvry.onrender.com",
+    origin: ["http://localhost:3000", "https://www.car-trader.site"],
     credentials: true,
   }),
 );
