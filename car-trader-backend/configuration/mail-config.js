@@ -16,7 +16,7 @@ export const mailtrapClient = nodemailer.createTransport({
 });
 
 export const sender = {
-  email: "hello@demomailtrap.co",
+  email: "hello@car-trader.site",
   name: "CAR TRADER",
 };
 
