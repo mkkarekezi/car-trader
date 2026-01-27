@@ -1,7 +1,7 @@
 import { MailtrapClient } from "mailtrap";
 
 export const mailTrapClient = new MailtrapClient({
-  token: "aae46d5a80e8a582ee9845dd91e3d351",
+  token: process.env.MAILTRAP_TOKEN,
 });
 
 import nodemailer from "nodemailer";

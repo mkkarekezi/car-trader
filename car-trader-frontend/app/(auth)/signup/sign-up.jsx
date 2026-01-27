@@ -46,17 +46,20 @@ export function CreateAccount() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://car-trader-uvry.onrender.com//api/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: username.toLowerCase().trim(),
+            email: email.toLowerCase().trim(),
+            password,
+          }),
         },
-        body: JSON.stringify({
-          username: username.toLowerCase().trim(),
-          email: email.toLowerCase().trim(),
-          password,
-        }),
-      });
+      );
 
       const data = await response.json();
 

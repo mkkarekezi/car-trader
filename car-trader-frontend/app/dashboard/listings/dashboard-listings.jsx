@@ -1,11 +1,14 @@
 export async function FetchListings() {
   try {
-    const response = await fetch("http://localhost:5000/api/sell/my-listings", {
-      credentials: "include",
-      headers: {
-        "Content-Type": "application/json",
+    const response = await fetch(
+      "https://car-trader-uvry.onrender.com/api/sell/my-listings",
+      {
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
       },
-    });
+    );
 
     const data = await response.json();
 

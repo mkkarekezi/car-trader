@@ -9,11 +9,14 @@ export function SignOut(router) {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/signout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include", // Important: sends cookies with request
-      });
+      const response = await fetch(
+        "https://car-trader-uvry.onrender.com/api/auth/signout",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "include", // Important: sends cookies with request
+        },
+      );
 
       const data = await response.json();
       console.log("Logout response:", data);

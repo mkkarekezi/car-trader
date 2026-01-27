@@ -48,7 +48,7 @@ export function VerifyAccount(emailParam) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/verify-account",
+        "https://car-trader-uvry.onrender.com/api/auth/verify-account",
         {
           method: "POST",
           headers: {

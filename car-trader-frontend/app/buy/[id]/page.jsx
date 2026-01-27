@@ -9,7 +9,7 @@ export default function CarDetailsPage({ params }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/sell/get-one/${id}`)
+    fetch(`https://car-trader-uvry.onrender.com/api/sell/get-one/${id}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

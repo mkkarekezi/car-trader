@@ -40,11 +40,14 @@ export function DashboardUploadFunction() {
     });
 
     try {
-      const response = await fetch("http://localhost:5000/api/sell/uploadcar", {
-        method: "POST",
-        body: data,
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://car-trader-uvry.onrender.com/api/sell/uploadcar",
+        {
+          method: "POST",
+          body: data,
+          credentials: "include",
+        },
+      );
 
       const result = await response.json();
 

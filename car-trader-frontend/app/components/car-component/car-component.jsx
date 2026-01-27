@@ -8,7 +8,7 @@ export default function CarComponent() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/sell/get-all")
+    fetch("https://car-trader-uvry.onrender.com/api/sell/get-all")
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
