@@ -18,9 +18,8 @@ export function VerifyAccount(emailParam) {
     if (!emailParam || !canVerify) {
       setState((prev) => ({
         ...prev,
-        error: "Unauthorized access. Redirecting...",
+        error: "Unauthorized access. Please sign up first.",
       }));
-      setTimeout(() => router.push("/signup"), 2000);
       return;
     }
 
@@ -71,11 +70,11 @@ export function VerifyAccount(emailParam) {
 
       setState((prev) => ({
         ...prev,
-        success: "Account verified successfully! Redirecting...",
+        success: "Account verified successfully! Redirecting to dashboard...",
       }));
 
       setTimeout(() => {
-        router.push("/account/login");
+        router.push("/dashboard"); // Changed from /account/login to /dashboard
       }, 2000);
     } catch (err) {
       setState((prev) => ({ ...prev, error: err.message }));
