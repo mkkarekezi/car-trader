@@ -46,7 +46,7 @@ export function LoginAccount(router) {
         if (data.token) {
           localStorage.setItem("token", data.token);
           console.log("Token stored:", data.token); // Debug
-          router.push("/dashboard/upload");
+          // router.push("/dashboard/upload");
         } else {
           setError("No token received from server");
           console.error("No token in response:", data); // Debug
