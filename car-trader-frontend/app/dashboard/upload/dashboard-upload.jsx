@@ -33,6 +33,15 @@ export function DashboardUploadFunction() {
     setLoading(true);
     setError("");
 
+    // Get token from localStorage
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      setError("Please login first");
+      setLoading(false);
+      return;
+    }
+
     const data = new FormData();
     Object.keys(formData).forEach((key) => data.append(key, formData[key]));
     Object.keys(images).forEach((key) => {
@@ -44,6 +53,9 @@ export function DashboardUploadFunction() {
         "https://car-trader-uvry.onrender.com/api/sell/uploadcar",
         {
           method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`, // Added Authorization header
+          },
           body: data,
           credentials: "include",
         },
