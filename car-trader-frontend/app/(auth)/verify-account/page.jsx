@@ -2,8 +2,10 @@
 import { VerifyAccount } from "./verify-account.jsx";
 import { SecondNavigation } from "../../components/navigation-component/navigation-component.jsx";
 import "../auth-route.css";
+import { useSearchParams } from "next/navigation";
 
 export default function VerifyAccountPage() {
+  const searchParams = useSearchParams();
   const { state, setState, handleSubmit } = VerifyAccount();
 
   return (
