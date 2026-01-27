@@ -1,7 +1,9 @@
 import jwt from "jsonwebtoken";
 
 export function checkAuth(req, res, next) {
-  const token = req.cookies.token;
+  // Check both cookie and Authorization header
+  const token =
+    req.cookies.token || req.headers.authorization?.replace("Bearer ", "");
 
   if (!token) {
     return res.status(401).json({

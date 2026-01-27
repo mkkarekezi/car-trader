@@ -148,20 +148,13 @@ export async function signIn(req, res) {
       expiresIn: "7d",
     });
 
-    // Set cookie with proper options for cross-origin
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: true, // Always true for production HTTPS
-      sameSite: "none", // Required for cross-origin cookies
-      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-    });
-
     user.lastlogin = new Date();
     await user.save();
 
     res.status(200).json({
       success: true,
       message: "logged in successful",
+      token: token, // Send token in response
       user: {
         username: user.username,
         email: user.email,
@@ -257,13 +250,24 @@ export async function createPassword(req, res) {
 //
 export const checkAuth = async (req, res) => {
   try {
-    const user = await User.findById(req.userId).select("-password");
+    // Check both cookie and Authorization header
+    const token =
+      req.cookies.token || req.headers.authorization?.replace("Bearer ", "");
+
+    if (!token) {
+      return res
+        .status(401)
+        .json({ success: false, message: "Not authenticated" });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+    const user = await User.findById(decoded.userid).select("-password");
     if (!user) {
       return res
         .status(400)
         .json({ success: false, message: "User not found" });
     }
-
     res.status(200).json({ success: true, user });
   } catch (error) {
     console.log("Error in checkAuth ", error);
