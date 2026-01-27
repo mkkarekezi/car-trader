@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 
-export function VerifyAccount() {
+export function VerifyAccount(emailParam) {
   const router = useRouter();
-  const searchParams = useSearchParams();
 
   const [state, setState] = useState({
     verificationCode: "",
@@ -14,7 +13,6 @@ export function VerifyAccount() {
   });
 
   useEffect(() => {
-    const emailParam = searchParams.get("email");
     const canVerify = sessionStorage.getItem("canVerify");
 
     if (!emailParam || !canVerify) {
@@ -27,7 +25,7 @@ export function VerifyAccount() {
     }
 
     setState((prev) => ({ ...prev, email: emailParam }));
-  }, [searchParams, router]);
+  }, [emailParam, router]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

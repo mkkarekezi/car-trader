@@ -1,17 +1,18 @@
 "use client";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { VerifyAccount } from "./verify-account.jsx";
 import { SecondNavigation } from "../../components/navigation-component/navigation-component.jsx";
 import "../auth-route.css";
-import { useSearchParams } from "next/navigation";
 
-export default function VerifyAccountPage() {
+function VerifyAccountContent() {
   const searchParams = useSearchParams();
-  const { state, setState, handleSubmit } = VerifyAccount();
+  const emailParam = searchParams.get("email");
+  const { state, setState, handleSubmit } = VerifyAccount(emailParam);
 
   return (
     <section className="auth">
       <SecondNavigation />
-
       <div className="auth-wrapper">
         <main className="auth-wrapper-main">
           <h1 className="auth-wrapper-main-heading">verify your account</h1>
@@ -23,7 +24,6 @@ export default function VerifyAccountPage() {
             {state.success && (
               <p className="success-message">{state.success}</p>
             )}
-
             <input
               type="text"
               placeholder="enter 6-digit code"
@@ -38,7 +38,6 @@ export default function VerifyAccountPage() {
               maxLength={6}
               disabled={state.loading}
             />
-
             <input
               type="submit"
               value={state.loading ? "verifying..." : "verify account"}
@@ -49,5 +48,13 @@ export default function VerifyAccountPage() {
         </main>
       </div>
     </section>
+  );
+}
+
+export default function VerifyAccountPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <VerifyAccountContent />
+    </Suspense>
   );
 }
