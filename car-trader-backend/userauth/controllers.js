@@ -1,4 +1,5 @@
 import User from "./models.js";
+import jwt from "jsonwebtoken";
 import bcryptjs from "bcryptjs";
 import { gentokencookie } from "../configuration/gentokencookie.js";
 import {
