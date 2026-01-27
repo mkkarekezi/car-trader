@@ -1,4 +1,5 @@
 export async function FetchListings() {
+  const token = localStorage.getItem("token");
   try {
     const response = await fetch(
       "https://car-trader-uvry.onrender.com/api/sell/my-listings",
