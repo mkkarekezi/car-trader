@@ -74,7 +74,7 @@ export function VerifyAccount(emailParam) {
       }));
 
       setTimeout(() => {
-        router.push("/dashboard/upload"); // Changed from /account/login to /dashboard
+        router.push("/login"); // Changed from /account/login to /dashboard
       }, 2000);
     } catch (err) {
       setState((prev) => ({ ...prev, error: err.message }));
