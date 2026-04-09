@@ -20,7 +20,7 @@ export default function Model() {
 
     try {
       const response = await fetch(
-        "https://mjoel0001-car-trader.hf.space/predict",
+        "https://mkkarekezi-car-trader.hf.space/predict",
         {
           method: "POST",
           headers: {
